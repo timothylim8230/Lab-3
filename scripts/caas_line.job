@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=wsn_line
+#SBATCH --time=00:10:00          ### CAAS maximum per job
+#SBATCH --mem=16G                ### per node
+#SBATCH --ntasks=32              ### 1x31 line + base = 32 ranks, all launched with srun
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-node=16     ### 2 nodes; a 1xN line is cut across the node boundary
+#SBATCH --output=slurm-%x-%j.out
+#SBATCH --partition=defq
+#
+# Task 3(b): communication delay vs line topology length (1xN, N = 2..33).
+# N = 32 and 33 exceed the allocation and fall back to mpirun --oversubscribe.
+# Submit three times for three repetitions.
+
+source scripts/caas_common.sh
+
+DURATION=8 PERIOD=10 PROB=0.8 K=6 THRESHOLD=2 CYCLE=1 REPEATS=1 scripts/run_sweep.sh line
+
+echo "=== finished at $(date -Is)"
+exit 0
