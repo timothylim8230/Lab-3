@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --job-name=wsn_period
+#SBATCH --time=00:06:00
+#SBATCH --mem=16G                ### per node
+#SBATCH --ntasks=17              ### 4x4 grid + base station
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-node=9      ### 2 nodes
+#SBATCH --output=slurm-%x-%j.out
+#SBATCH --partition=defq
+#
+# Task 2 requirement: test the base station's predefined period T with several
+# values. Fixed 4x4 grid, T in {2,5,10,20,60}, congestion probability 0.7 so
+# the base station produces both "nearest available nodes" and "no nodes
+# available" replies (locally, 20 s at 0.7 gave ~24 alerts: T=2 -> 13 suggested
+# / 11 none, T=20 -> 8 suggested / 16 none). Compare the counts in base.log.
+
+source scripts/caas_common.sh
+
+DURATION=20 PERIODS="2 5 10 20 60" PROB_PERIOD=0.7 K=6 THRESHOLD=2 CYCLE=1 REPEATS=1 scripts/run_sweep.sh period
+
+echo "=== finished at $(date -Is)"
+exit 0

@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=wsn_smoke
+#SBATCH --time=00:03:00          ### hh:mm:ss (10 minutes is the CAAS maximum)
+#SBATCH --mem=8G                 ### per node
+#SBATCH --ntasks=10              ### 3x3 grid + 1 base station
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-node=5      ### split over two nodes so some neighbour traffic crosses the network
+#SBATCH --output=slurm-%x-%j.out
+#SBATCH --partition=defq
+#
+# First job to submit on CAAS: proves the module, build and srun launch work.
+#   sbatch scripts/caas_smoke.job && squeue -u $USER
+#   cat slurm-wsn_smoke-<jobid>.out ; cat results/smoke_*/wsn_3x3_T10_r0/base.log
+
+source scripts/caas_common.sh
+
+DURATION=10 PERIOD=10 PROB=0.8 scripts/run_sweep.sh smoke
+
+echo "=== finished at $(date -Is)"
+exit 0

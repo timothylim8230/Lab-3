@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH --job-name=wsn_grid
+#SBATCH --time=00:10:00          ### CAAS maximum per job
+#SBATCH --mem=16G                ### per node
+#SBATCH --ntasks=32              ### 32 is the per-job cap stated in the CAAS slides (see note)
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-node=16     ### 16 cores per node => 2 nodes
+#SBATCH --output=slurm-%x-%j.out
+#SBATCH --partition=defq
+#
+# Task 3(a): communication delay vs EV grid size (>= 30 grid sizes).
+#
+# Budget: 31 sizes x (DURATION + ~3 s start/stop) must fit in 10 minutes, so
+# DURATION=8. Submit this job three times for three repetitions (only one job
+# runs at a time per user, the others queue):
+#   for i in 1 2 3; do sbatch scripts/caas_grid.job; done
+#
+# Rank count: grids above 5x6 need more than 32 ranks. run_sweep.sh then
+# launches them with "mpirun --oversubscribe" inside the allocation instead of
+# srun. The ranks sleep most of the time, so oversubscription is tolerable,
+# but if the cluster accepts larger allocations (CAAS_DEMO/mpi_cluster.job
+# asks for 128) raise --ntasks here so every rank gets its own core.
+
+source scripts/caas_common.sh
+
+DURATION=8 PERIOD=10 PROB=0.8 K=6 THRESHOLD=2 CYCLE=1 REPEATS=1 scripts/run_sweep.sh grid
+
+echo "=== finished at $(date -Is)"
+exit 0
