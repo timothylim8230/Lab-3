@@ -23,6 +23,7 @@
 #include <string.h>
 
 #define REPLY_POOL 64         /* outstanding NbrReply sends kept alive until complete */
+#define REPORT_POOL 16        /* outstanding Report sends to the base station (one per incident) */
 #define IDLE_SLEEP_MS 5       /* comm thread sleep between service passes */
 #define WAIT_SLEEP_MS 1       /* sleep while waiting for neighbour / base replies */
 #define PORT_SLEEP_MS 20      /* port thread sleep slice (so it notices stop_flag quickly) */
@@ -75,6 +76,18 @@ typedef struct
     BaseReply base_buf;
     double base_sent_at;
     int base_seq;
+
+    /* outstanding Report sends. A send to the base station only completes once
+     * the base station progresses MPI, so the comm thread never waits on one
+     * inline (that would also stall neighbour service); the slots are polled
+     * from service() and reused round-robin. */
+    struct
+    {
+        int active;
+        MPI_Request req;
+        Report buf;
+    } rpool[REPORT_POOL];
+    int rpool_next;
 
     /* logs */
     FILE *log, *timing;
@@ -234,6 +247,53 @@ static void serve_nbr_request(Node *nd, const MPI_Status *st)
             req.seq, req.src_rank, rep->avail, rep->k);
 }
 
+/* Non-blocking: retire every report send that has completed. */
+static void report_pool_poll(Node *nd)
+{
+    for (int i = 0; i < REPORT_POOL; i++)
+    {
+        if (!nd->rpool[i].active)
+            continue;
+        int done;
+        MPI_Test(&nd->rpool[i].req, &done, MPI_STATUS_IGNORE);
+        if (done)
+            nd->rpool[i].active = 0;
+    }
+}
+
+/* Next report slot (round-robin => the oldest send is the one reused). Only
+ * waits if REPORT_POOL consecutive reports are still unsent, i.e. the base
+ * station has not progressed MPI for that many incidents. */
+static int report_pool_slot(Node *nd)
+{
+    int i = nd->rpool_next;
+    nd->rpool_next = (i + 1) % REPORT_POOL;
+    if (nd->rpool[i].active)
+    {
+        int done;
+        MPI_Test(&nd->rpool[i].req, &done, MPI_STATUS_IGNORE);
+        if (!done)
+        {
+            logf_ts(nd, "WARNING: %d report sends still outstanding (base station not receiving); waiting for the oldest", REPORT_POOL);
+            MPI_Wait(&nd->rpool[i].req, MPI_STATUS_IGNORE);
+        }
+        nd->rpool[i].active = 0;
+    }
+    return i;
+}
+
+static void report_pool_drain(Node *nd)
+{
+    for (int i = 0; i < REPORT_POOL; i++)
+    {
+        if (nd->rpool[i].active)
+        {
+            MPI_Wait(&nd->rpool[i].req, MPI_STATUS_IGNORE);
+            nd->rpool[i].active = 0;
+        }
+    }
+}
+
 static void handle_base_reply(Node *nd)
 {
     double now = MPI_Wtime();
@@ -297,6 +357,8 @@ static int service(Node *nd)
             break;
         serve_nbr_request(nd, &st);
     }
+
+    report_pool_poll(nd);
 
     if (nd->base_pending)
     {
@@ -463,6 +525,7 @@ static int handle_congestion(Node *nd, int avail, const int ports[MAX_PORTS], co
         nd->base_pending = 0;
     }
 
+    const int slot = report_pool_slot(nd);
     Report rp;
     memset(&rp, 0, sizeof rp);
     rp.seq = seq;
@@ -501,9 +564,9 @@ static int handle_congestion(Node *nd, int avail, const int ports[MAX_PORTS], co
     nd->base_seq = seq;
     rp.sent_at = MPI_Wtime();
     nd->base_sent_at = rp.sent_at;
-    MPI_Request srep;
-    MPI_Isend(&rp, 1, nd->types.report, nd->base_rank, TAG_REPORT, nd->world, &srep);
-    MPI_Wait(&srep, MPI_STATUS_IGNORE); /* small message: completes as soon as it is buffered */
+    nd->rpool[slot].buf = rp;
+    MPI_Isend(&nd->rpool[slot].buf, 1, nd->types.report, nd->base_rank, TAG_REPORT, nd->world, &nd->rpool[slot].req);
+    nd->rpool[slot].active = 1; /* retired later by service(); never block on the base station here */
     nd->n_reports++;
 
     logf_ts(nd, "incident #%d: all neighbours congested -> REPORT sent to base station "
@@ -574,6 +637,8 @@ static void comm_thread(Node *nd)
         MPI_Wait(&nd->base_req, MPI_STATUS_IGNORE);
         nd->base_pending = 0;
     }
+    /* the base station is alive (it just sent TERMINATE), so these complete promptly */
+    report_pool_drain(nd);
     pool_drain(nd);
 }
 
