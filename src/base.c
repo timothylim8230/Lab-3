@@ -30,7 +30,7 @@ typedef struct {
     FILE *log, *timing;
     double started_at;
 
-    /* All timestamps are taken locally at the base (same MPI_Wtime clock). */
+    /* All timestamps are taken locally at the base (wsn_time, CLOCK_MONOTONIC). */
     double *last_report_at;       /* -1 means this rank has never reported */
     double *last_observed_at;     /* latest availability snapshot seen in a report */
     int *last_observed_avail;
@@ -164,7 +164,7 @@ static void queue_base_reply(Base *b, int destination, const Report *report,
     // gets the nodes available 
     p->payload.n_available = find_candidates(b, destination, now,
                                               p->payload.ranks, p->payload.coords);
-    p->payload.sent_at = MPI_Wtime();
+    p->payload.sent_at = wsn_time();
     
     // non blocking send
     MPI_Isend(&p->payload, 1, b->types.base_reply, destination,
@@ -201,7 +201,7 @@ static void handle_report(Base *b, int source)
 
     
     // update base stations's data on the reporting node's dats
-    const double now = MPI_Wtime();
+    const double now = wsn_time();
     const double elapsed = now - b->started_at;
 
     b->reports_received++;
@@ -248,7 +248,7 @@ static void handle_report(Base *b, int source)
                 report.nbr_replied[i], report.nbr_avail[i], report.nbr_rtt[i]);
     }
 
-    /* MPI_Wtime across different ranks may not share a synchronised clock. */
+    /* one-way delay is exact when node and base share a host; across hosts use the RTT the node logs */
     fprintf(b->timing, "REPORT,%d,%d,%d,%zu,%.9f,-1,%.6f\n",
             b->base_rank, source, report.seq, sizeof report,
             now - report.sent_at, elapsed);
@@ -291,7 +291,7 @@ int base_main(const Config *cfg, MPI_Comm world, int n_nodes)
     b.cfg = cfg;
     b.world = world;
     b.n_nodes = n_nodes;
-    b.started_at = MPI_Wtime();
+    b.started_at = wsn_time();
     MPI_Comm_rank(world, &b.base_rank);
 
     // allocate memory to report-history arrays, abort if not enough
@@ -331,14 +331,14 @@ int base_main(const Config *cfg, MPI_Comm world, int n_nodes)
     fflush(stdout);
     
     // main sumulation loop, runs until specified duration
-    while (MPI_Wtime() - b.started_at < cfg->duration_s) {
+    while (wsn_time() - b.started_at < cfg->duration_s) {
         int received = receive_reports(&b);
         progress_replies(&b);
         if (!received) sleep_ms(BASE_POLL_MS);
     }
 
     /* Send shutdown to EVERY EV node; keep receiving any in-flight reports. */
-    double termination_sent_at = MPI_Wtime();
+    double termination_sent_at = wsn_time();
     MPI_Request *terminations = malloc((size_t)n_nodes * sizeof *terminations);
     if (!terminations) {
         fprintf(stderr, "base: out of memory for termination requests\n");
@@ -374,7 +374,7 @@ int base_main(const Config *cfg, MPI_Comm world, int n_nodes)
     }
 
     fprintf(b.log, "\n# ---- summary ----\n");
-    fprintf(b.log, "# simulation time                 : %.3f s\n", MPI_Wtime() - b.started_at);
+    fprintf(b.log, "# simulation time                 : %.3f s\n", wsn_time() - b.started_at);
     fprintf(b.log, "# alerts / reports received       : %ld\n", b.reports_received);
     fprintf(b.log, "# base replies sent               : %ld\n", b.replies_sent);
     fprintf(b.log, "# termination messages sent       : %ld\n", b.terminations_sent);

@@ -10,7 +10,7 @@
 #include <sys/stat.h>
 #include <time.h>
 
-const char *const NBR_NAME[MAX_NBRS] = { "top", "bottom", "left", "right" };
+const char *const NBR_NAME[MAX_NBRS] = {"top", "bottom", "left", "right"};
 
 /*
  * Every message struct is laid out as "ints first, then doubles", so a single
@@ -19,15 +19,15 @@ const char *const NBR_NAME[MAX_NBRS] = { "top", "bottom", "left", "right" };
  */
 static MPI_Datatype make_int_double_type(size_t first_double_off, size_t struct_size)
 {
-    int          blocklens[2];
-    MPI_Aint     displs[2];
-    MPI_Datatype types[2] = { MPI_INT, MPI_DOUBLE };
+    int blocklens[2];
+    MPI_Aint displs[2];
+    MPI_Datatype types[2] = {MPI_INT, MPI_DOUBLE};
     MPI_Datatype tmp, out;
 
     blocklens[0] = (int)(first_double_off / sizeof(int));
     blocklens[1] = (int)((struct_size - first_double_off) / sizeof(double));
-    displs[0]    = 0;
-    displs[1]    = (MPI_Aint)first_double_off;
+    displs[0] = 0;
+    displs[1] = (MPI_Aint)first_double_off;
 
     MPI_Type_create_struct(2, blocklens, displs, types, &tmp);
     MPI_Type_create_resized(tmp, 0, (MPI_Aint)struct_size, &out);
@@ -38,10 +38,10 @@ static MPI_Datatype make_int_double_type(size_t first_double_off, size_t struct_
 
 void mpi_types_create(MpiTypes *t)
 {
-    t->nbr_req    = make_int_double_type(offsetof(NbrRequest, sent_at),       sizeof(NbrRequest));
-    t->nbr_reply  = make_int_double_type(offsetof(NbrReply,   req_sent_at),   sizeof(NbrReply));
-    t->report     = make_int_double_type(offsetof(Report,     nbr_rtt),       sizeof(Report));
-    t->base_reply = make_int_double_type(offsetof(BaseReply,  report_sent_at), sizeof(BaseReply));
+    t->nbr_req = make_int_double_type(offsetof(NbrRequest, sent_at), sizeof(NbrRequest));
+    t->nbr_reply = make_int_double_type(offsetof(NbrReply, req_sent_at), sizeof(NbrReply));
+    t->report = make_int_double_type(offsetof(Report, nbr_rtt), sizeof(Report));
+    t->base_reply = make_int_double_type(offsetof(BaseReply, report_sent_at), sizeof(BaseReply));
 }
 
 void mpi_types_free(MpiTypes *t)
@@ -52,9 +52,16 @@ void mpi_types_free(MpiTypes *t)
     MPI_Type_free(&t->base_reply);
 }
 
+double wsn_time(void)
+{
+    struct timespec t;
+    clock_gettime(CLOCK_MONOTONIC, &t);
+    return (double)t.tv_sec + (double)t.tv_nsec / 1e9;
+}
+
 void wall_timestamp(int out[6])
 {
-    time_t    now = time(NULL);
+    time_t now = time(NULL);
     struct tm tm;
     localtime_r(&now, &tm);
     out[0] = tm.tm_year + 1900;
@@ -73,15 +80,17 @@ void format_timestamp(const int ts[6], char *buf, size_t n)
 void sleep_ms(double ms)
 {
     struct timespec req;
-    if (ms <= 0) return;
-    req.tv_sec  = (time_t)(ms / 1000.0);
+    if (ms <= 0)
+        return;
+    req.tv_sec = (time_t)(ms / 1000.0);
     req.tv_nsec = (long)((ms - (double)req.tv_sec * 1000.0) * 1e6);
     nanosleep(&req, NULL);
 }
 
 int ensure_dir(const char *path)
 {
-    if (mkdir(path, 0775) == 0) return 0;
+    if (mkdir(path, 0775) == 0)
+        return 0;
     return (errno == EEXIST) ? 0 : -1;
 }
 

@@ -105,7 +105,7 @@ static void logf_ts(Node *nd, const char *fmt, ...)
     va_list ap;
     wall_timestamp(ts);
     format_timestamp(ts, tbuf, sizeof tbuf);
-    fprintf(nd->log, "[%s | t=%8.3f] ", tbuf, MPI_Wtime() - nd->t_start);
+    fprintf(nd->log, "[%s | t=%8.3f] ", tbuf, wsn_time() - nd->t_start);
     va_start(ap, fmt);
     vfprintf(nd->log, fmt, ap);
     va_end(ap);
@@ -117,7 +117,7 @@ static void timing_row(Node *nd, const char *msg_type, int peer, int seq, size_t
                        double one_way, double rtt)
 {
     fprintf(nd->timing, "%s,%d,%d,%d,%zu,%.9f,%.9f,%.6f\n",
-            msg_type, nd->rank, peer, seq, bytes, one_way, rtt, MPI_Wtime() - nd->t_start);
+            msg_type, nd->rank, peer, seq, bytes, one_way, rtt, wsn_time() - nd->t_start);
 }
 
 /* ------------------------------------------------------------------------ */
@@ -223,7 +223,7 @@ static void serve_nbr_request(Node *nd, const MPI_Status *st)
 {
     NbrRequest req;
     MPI_Recv(&req, 1, nd->types.nbr_req, st->MPI_SOURCE, TAG_NBR_REQ, nd->cart, MPI_STATUS_IGNORE);
-    double now = MPI_Wtime();
+    double now = wsn_time();
     nd->tot_msgs_recv++;
     nd->tot_bytes_recv += (int)sizeof(NbrRequest);
     nd->n_requests_served++;
@@ -237,7 +237,7 @@ static void serve_nbr_request(Node *nd, const MPI_Status *st)
     rep->k = nd->cfg->k;
     rep->avail = snapshot_ports(nd, rep->ports);
     rep->req_sent_at = req.sent_at;
-    rep->sent_at = MPI_Wtime();
+    rep->sent_at = wsn_time();
     MPI_Isend(rep, 1, nd->types.nbr_reply, st->MPI_SOURCE, TAG_NBR_REPLY, nd->cart, &nd->pool[slot].req);
     nd->pool[slot].active = 1;
     nd->tot_msgs_sent++;
@@ -296,7 +296,7 @@ static void report_pool_drain(Node *nd)
 
 static void handle_base_reply(Node *nd)
 {
-    double now = MPI_Wtime();
+    double now = wsn_time();
     BaseReply *r = &nd->base_buf;
     nd->base_pending = 0;
     nd->n_base_replies++;
@@ -342,7 +342,7 @@ static int service(Node *nd)
     {
         double sent_at, now;
         MPI_Recv(&sent_at, 1, MPI_DOUBLE, nd->base_rank, TAG_TERMINATE, nd->world, MPI_STATUS_IGNORE);
-        now = MPI_Wtime();
+        now = wsn_time();
         timing_row(nd, "TERMINATE", nd->base_rank, 0, sizeof(double), now - sent_at, -1.0);
         logf_ts(nd, "termination message received from base station (delay %.6f s); starting graceful shutdown", now - sent_at);
         nd->stop_flag = 1;
@@ -376,7 +376,7 @@ static int service(Node *nd)
                 MPI_Irecv(&nd->base_buf, 1, nd->types.base_reply, nd->base_rank, TAG_BASE_REPLY, nd->world, &nd->base_req);
             }
         }
-        else if (MPI_Wtime() - nd->base_sent_at > BASE_TIMEOUT_MULT * nd->cfg->cycle_s)
+        else if (wsn_time() - nd->base_sent_at > BASE_TIMEOUT_MULT * nd->cfg->cycle_s)
         {
             logf_ts(nd, "WARNING: no base station reply for report #%d after %.1f s; giving up on it",
                     nd->base_seq, BASE_TIMEOUT_MULT * nd->cfg->cycle_s);
@@ -419,7 +419,7 @@ static int handle_congestion(Node *nd, int avail, const int ports[MAX_PORTS], co
     int inc_sent = 0, inc_recv = 0, inc_bytes_sent = 0, inc_bytes_recv = 0;
 
     /* 1. send requests + post receives for the replies */
-    double t_req = MPI_Wtime();
+    double t_req = wsn_time();
     req.sent_at = t_req;
     for (int i = 0; i < MAX_NBRS; i++)
     {
@@ -435,7 +435,7 @@ static int handle_congestion(Node *nd, int avail, const int ports[MAX_PORTS], co
 
     /* 2. wait for replies, servicing other traffic meanwhile */
     const double timeout = NBR_TIMEOUT_MULT * cfg->cycle_s;
-    while (remaining > 0 && MPI_Wtime() - t_req < timeout)
+    while (remaining > 0 && wsn_time() - t_req < timeout)
     {
         for (int i = 0; i < MAX_NBRS; i++)
         {
@@ -452,7 +452,7 @@ static int handle_congestion(Node *nd, int avail, const int ports[MAX_PORTS], co
                 MPI_Irecv(&rep[i], 1, nd->types.nbr_reply, nd->nbr[i], TAG_NBR_REPLY, nd->cart, &rreq[i]);
                 continue;
             }
-            double now = MPI_Wtime();
+            double now = wsn_time();
             pending[i] = 0;
             got[i] = 1;
             remaining--;
@@ -473,7 +473,7 @@ static int handle_congestion(Node *nd, int avail, const int ports[MAX_PORTS], co
             sleep_ms(WAIT_SLEEP_MS);
         }
     }
-    double exchange_time = MPI_Wtime() - t_req;
+    double exchange_time = wsn_time() - t_req;
 
     /* cancel receives that never completed (neighbour slow or already terminated) */
     for (int i = 0; i < MAX_NBRS; i++)
@@ -562,7 +562,7 @@ static int handle_congestion(Node *nd, int avail, const int ports[MAX_PORTS], co
     MPI_Irecv(&nd->base_buf, 1, nd->types.base_reply, nd->base_rank, TAG_BASE_REPLY, nd->world, &nd->base_req);
     nd->base_pending = 1;
     nd->base_seq = seq;
-    rp.sent_at = MPI_Wtime();
+    rp.sent_at = wsn_time();
     nd->base_sent_at = rp.sent_at;
     nd->rpool[slot].buf = rp;
     MPI_Isend(&nd->rpool[slot].buf, 1, nd->types.report, nd->base_rank, TAG_REPORT, nd->world, &nd->rpool[slot].req);
@@ -590,7 +590,7 @@ static void comm_thread(Node *nd)
     int terminated = 0;
 
     /* first cycle record immediately so the log is never empty */
-    double next_cycle = MPI_Wtime();
+    double next_cycle = wsn_time();
 
     while (!terminated)
     {
@@ -600,7 +600,7 @@ static void comm_thread(Node *nd)
             break;
         }
 
-        double now = MPI_Wtime();
+        double now = wsn_time();
         if (now < next_cycle)
         {
             sleep_ms(IDLE_SLEEP_MS);
@@ -657,7 +657,7 @@ int node_main(const Config *cfg, MPI_Comm node_comm, MPI_Comm world, int base_ra
     nd->cfg = cfg;
     nd->world = world;
     nd->base_rank = base_rank;
-    nd->t_start = MPI_Wtime();
+    nd->t_start = wsn_time();
     MPI_Comm_rank(world, &nd->rank);
 
     /* ---- MPI virtual topology: m x n Cartesian grid, non-periodic, no reorder ---- */
@@ -741,7 +741,7 @@ int node_main(const Config *cfg, MPI_Comm node_comm, MPI_Comm world, int base_ra
     fprintf(nd->log, "# neighbour reply timeouts : %d\n", nd->n_nbr_timeouts);
     fprintf(nd->log, "# neighbour msgs sent/recv : %d / %d  (bytes %d / %d)\n",
             nd->tot_msgs_sent, nd->tot_msgs_recv, nd->tot_bytes_sent, nd->tot_bytes_recv);
-    fprintf(nd->log, "# run time                 : %.3f s\n", MPI_Wtime() - nd->t_start);
+    fprintf(nd->log, "# run time                 : %.3f s\n", wsn_time() - nd->t_start);
     fprintf(nd->log, "# shutdown                 : graceful (termination message from base station)\n");
     fclose(nd->log);
     fclose(nd->timing);

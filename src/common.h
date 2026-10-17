@@ -114,6 +114,16 @@ typedef struct {
 void mpi_types_create(MpiTypes *t);
 void mpi_types_free(MpiTypes *t);
 
+/*
+ * Monotonic timestamp in seconds, used for every message stamp and delay.
+ * NOT MPI_Wtime: Open MPI 5 returns MPI_Wtime relative to each process's own
+ * start, so two ranks on the same host disagree by up to milliseconds (measured
+ * 2026-10-17: -0.07 .. -1.9 ms offsets, see CLAUDE.md 6.1). CLOCK_MONOTONIC is
+ * one clock per host, so one-way delays between ranks on the same host are
+ * exact; across hosts (CAAS) only the round-trip columns are meaningful.
+ */
+double wsn_time(void);
+
 /* Wall-clock timestamp helpers */
 void wall_timestamp(int out[6]);
 void format_timestamp(const int ts[6], char *buf, size_t n);
