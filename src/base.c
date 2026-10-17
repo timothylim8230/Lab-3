@@ -11,13 +11,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define BASE_POLL_MS 5
-#define REPORT_BATCH 128
+#define BASE_POLL_MS 5 // polls every 5ms
+#define REPORT_BATCH 128 // limit of up to 128 reports 
 
+
+// represents base station reply, sent using non blocking MPI 
 typedef struct PendingReply {
-    BaseReply payload;            /* must remain valid until MPI_Isend completes */
-    MPI_Request request;
-    struct PendingReply *next;
+    BaseReply payload;            // must remain valid until MPI_Isend completes 
+    MPI_Request request;    
+    struct PendingReply *next; // points to next reply to manage multiple replies concurrenty 
 } PendingReply;
 
 typedef struct {
@@ -33,6 +35,7 @@ typedef struct {
     double *last_observed_at;     /* latest availability snapshot seen in a report */
     int *last_observed_avail;
 
+    // stores event data from simulation
     PendingReply *pending_replies;
     long reports_received;
     long replies_sent;
@@ -41,6 +44,11 @@ typedef struct {
     long nbr_msgs_reported_recv;
 } Base;
 
+
+/**
+ * Function that is used to check if an event happened recently (e.g. if a neighbouring node
+ * of a requesting node also sent a request recently)
+ */
 static int is_recent(double timestamp, double now, double period)
 {
     return timestamp >= 0.0 && now - timestamp <= period;
@@ -63,6 +71,9 @@ static void progress_replies(Base *b)
     }
 }
 
+/**
+ * Function that updates base station's info on a charging node (last observed date and num port available)
+ */
 static void remember_availability(Base *b, int rank, int avail, double now)
 {
     if (rank < 0 || rank >= b->n_nodes) return;
@@ -75,36 +86,41 @@ static void remember_availability(Base *b, int rank, int avail, double now)
  * after finding its immediate neighbours (1 and 3) congested.
  *
  * A missing recent congestion report is treated as an indicator that a
- * node MAY be available. This is not a confirmed real-time port count.
+ * node MAY be available.
  */
 static int find_candidates(const Base *b, int origin, double now,
                            int ranks[MAX_SUGGEST], int coords[MAX_SUGGEST][2])
 {
+    // gets grid measurements
     const int rows = b->cfg->m;
     const int cols = b->cfg->n;
     const int row = origin / cols;
     const int col = origin % cols;
     const double T = b->cfg->period_s;
+    // neighbour vectors
     const int dr[4] = {-1, 1, 0, 0};
     const int dc[4] = {0, 0, -1, 1};
 
-    /* If EVERY existing direct neighbour reported recently, return none. */
+    /* If every  existing direct neighbour reported recently, return none. */
     int neighbours = 0, recent_neighbour_reports = 0;
     for (int i = 0; i < 4; i++) {
         int r = row + dr[i], c = col + dc[i];
+        // skip if outside of grid (for nodes on edges)
         if (r < 0 || r >= rows || c < 0 || c >= cols) continue;
         neighbours++;
         if (is_recent(b->last_report_at[r * cols + c], now, T))
             recent_neighbour_reports++;
     }
+    // if all neighbours have reported recently, then no available nodes
     if (neighbours == 0 || recent_neighbour_reports == neighbours)
         return 0;
 
+    // checks for neighbours of the reporting nodes neighbours 
     int count = 0;
     for (int r = 0; r < rows; r++) {
         for (int c = 0; c < cols; c++) {
             int distance = abs(r - row) + abs(c - col);
-            if (distance != 2) continue; /* nearest nodes beyond 1-hop */
+            if (distance != 2) continue; 
             int rank = r * cols + c;
 
             /* A recent congestion report means this candidate is unsuitable. */
@@ -114,7 +130,8 @@ static int find_candidates(const Base *b, int origin, double now,
             if (is_recent(b->last_observed_at[rank], now, T) &&
                 b->last_observed_avail[rank] < b->cfg->threshold)
                 continue;
-
+            
+            // adds candidates as long as count is below max suggestion
             if (count < MAX_SUGGEST) {
                 ranks[count] = rank;
                 coords[count][0] = r;
@@ -127,26 +144,38 @@ static int find_candidates(const Base *b, int origin, double now,
     return count;
 }
 
+/**
+ * Function that handles the response of base to charging node with the new node the car should go to
+ */
 static void queue_base_reply(Base *b, int destination, const Report *report,
                              double now)
 {
+    // allocated reply space, if not enough then abort
     PendingReply *p = calloc(1, sizeof *p);
     if (!p) {
         fprintf(stderr, "base: out of memory for reply\n");
         MPI_Abort(b->world, 1);
     }
+
+    // gets incident sequence number for id, and report send time so node can calculate RTT
     p->payload.seq = report->seq;
     p->payload.report_sent_at = report->sent_at;
+
+    // gets the nodes available 
     p->payload.n_available = find_candidates(b, destination, now,
                                               p->payload.ranks, p->payload.coords);
     p->payload.sent_at = MPI_Wtime();
-
+    
+    // non blocking send
     MPI_Isend(&p->payload, 1, b->types.base_reply, destination,
               TAG_BASE_REPLY, b->world, &p->request);
+
+    // add to pending replies
     p->next = b->pending_replies;
     b->pending_replies = p;
     b->replies_sent++;
 
+    // reports results
     fprintf(b->log, "  recommendation for node %d, report #%d: ",
             destination, report->seq);
     if (p->payload.n_available == 0) fprintf(b->log, "NO nearby nodes available");
@@ -158,11 +187,20 @@ static void queue_base_reply(Base *b, int destination, const Report *report,
     fputc('\n', b->log);
 }
 
+/**
+ * Function to process congestion report 
+ */
 static void handle_report(Base *b, int source)
 {
+
     Report report;
+
+    // blocking receive, but called after Iprobe, so only called when a report arrives
     MPI_Recv(&report, 1, b->types.report, source, TAG_REPORT,
              b->world, MPI_STATUS_IGNORE);
+
+    
+    // update base stations's data on the reporting node's dats
     const double now = MPI_Wtime();
     const double elapsed = now - b->started_at;
 
@@ -178,6 +216,8 @@ static void handle_report(Base *b, int source)
     b->nbr_msgs_reported_sent += report.inc_msgs_sent;
     b->nbr_msgs_reported_recv += report.inc_msgs_recv;
 
+
+    // format and log report
     char timestamp[40];
     format_timestamp(report.ts, timestamp, sizeof timestamp);
     fprintf(b->log,
@@ -228,9 +268,11 @@ static int receive_reports(Base *b)
     for (int i = 0; i < REPORT_BATCH; i++) {
         int has_report = 0;
         MPI_Status status;
+        // probes for reports
         MPI_Iprobe(MPI_ANY_SOURCE, TAG_REPORT, b->world,
                    &has_report, &status);
         if (!has_report) break;
+        // if report received, validate and handle
         if (status.MPI_SOURCE >= 0 && status.MPI_SOURCE < b->n_nodes) {
             handle_report(b, status.MPI_SOURCE);
             received++;
@@ -241,14 +283,18 @@ static int receive_reports(Base *b)
 
 int base_main(const Config *cfg, MPI_Comm world, int n_nodes)
 {
+    // intialise
     Base b;
     memset(&b, 0, sizeof b);
+
+    // stores configuration, communicator, num nodes, starting time and base ranl
     b.cfg = cfg;
     b.world = world;
     b.n_nodes = n_nodes;
     b.started_at = MPI_Wtime();
     MPI_Comm_rank(world, &b.base_rank);
 
+    // allocate memory to report-history arrays, abort if not enough
     b.last_report_at = malloc((size_t)n_nodes * sizeof(double));
     b.last_observed_at = malloc((size_t)n_nodes * sizeof(double));
     b.last_observed_avail = malloc((size_t)n_nodes * sizeof(int));
@@ -256,6 +302,8 @@ int base_main(const Config *cfg, MPI_Comm world, int n_nodes)
         fprintf(stderr, "base: out of memory for report history\n");
         MPI_Abort(world, 1);
     }
+
+    //intialise report-history entries for each node
     for (int i = 0; i < n_nodes; i++) {
         b.last_report_at[i] = -1.0;
         b.last_observed_at[i] = -1.0;
@@ -263,6 +311,7 @@ int base_main(const Config *cfg, MPI_Comm world, int n_nodes)
     }
     mpi_types_create(&b.types);
 
+    // opens logging files and writes report
     char path[512];
     snprintf(path, sizeof path, "%s/base.log", cfg->log_dir);
     b.log = fopen(path, "w");
@@ -280,7 +329,8 @@ int base_main(const Config *cfg, MPI_Comm world, int n_nodes)
     printf("[base %d] listening for reports from %d nodes for %.2f s (T=%.2f s)\n",
            b.base_rank, n_nodes, cfg->duration_s, cfg->period_s);
     fflush(stdout);
-
+    
+    // main sumulation loop, runs until specified duration
     while (MPI_Wtime() - b.started_at < cfg->duration_s) {
         int received = receive_reports(&b);
         progress_replies(&b);
@@ -294,12 +344,15 @@ int base_main(const Config *cfg, MPI_Comm world, int n_nodes)
         fprintf(stderr, "base: out of memory for termination requests\n");
         MPI_Abort(world, 1);
     }
+    // send termination messages
     for (int i = 0; i < n_nodes; i++) {
         MPI_Isend(&termination_sent_at, 1, MPI_DOUBLE, i,
                   TAG_TERMINATE, world, &terminations[i]);
         b.terminations_sent++;
     }
 
+    // runs while each node receives termination and terminates. while waiting, base station
+    // handles reportd and processes outstanding replies
     int remaining = n_nodes;
     while (remaining > 0) {
         receive_reports(&b);
