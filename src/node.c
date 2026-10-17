@@ -13,6 +13,10 @@
  * a node is never stuck in MPI_Recv: neighbour requests and the termination
  * message are serviced while waiting for anything else.
  */
+/**
+ * Timothy Lim  33111472 tlim0034@student.monash.edu
+ * Scott Nguyen 33879095 sngu0065@student.monash.edu
+ */
 #define _POSIX_C_SOURCE 200809L
 #include "node.h"
 

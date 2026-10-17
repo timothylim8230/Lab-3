@@ -3,6 +3,10 @@
  * FIT3143 Lab 3
  */
 #define _POSIX_C_SOURCE 200809L
+/**
+ * Timothy Lim  33111472 tlim0034@student.monash.edu
+ * Scott Nguyen 33879095 sngu0065@student.monash.edu
+ */
 #include "common.h"
 
 #include <errno.h>

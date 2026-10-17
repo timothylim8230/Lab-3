@@ -5,6 +5,10 @@
  * Rank assumptions match Task 1: reorder=0, so node world/cart ranks agree,
  * and a node at (row,col) has world rank row * n + col.
  */
+/**
+ * Timothy Lim  33111472 tlim0034@student.monash.edu
+ * Scott Nguyen 33879095 sngu0065@student.monash.edu
+ */
 #include "base.h"
 
 #include <stdio.h>

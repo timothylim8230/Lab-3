@@ -8,6 +8,10 @@
  * because the nodes send/receive them; the base station itself (Task 2) is
  * not part of this code base.
  */
+/**
+ * Timothy Lim  33111472 tlim0034@student.monash.edu
+ * Scott Nguyen 33879095 sngu0065@student.monash.edu
+ */
 #ifndef COMMON_H
 #define COMMON_H
 

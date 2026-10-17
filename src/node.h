@@ -2,6 +2,11 @@
  * node.h - EV charging node (Task 1)
  * FIT3143 Lab 3
  */
+
+/**
+ * Timothy Lim  33111472 tlim0034@student.monash.edu
+ * Scott Nguyen 33879095 sngu0065@student.monash.edu
+ */
 #ifndef NODE_H
 #define NODE_H
 

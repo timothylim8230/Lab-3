@@ -10,6 +10,10 @@
  * one-process base station communicator, following the master/slave pattern
  * from the Week 11 prep sheet. Node <-> base traffic uses MPI_COMM_WORLD.
  */
+/**
+ * Timothy Lim  33111472 tlim0034@student.monash.edu
+ * Scott Nguyen 33879095 sngu0065@student.monash.edu
+ */
 #include "common.h"
 #include "node.h"
 #include "base.h"
