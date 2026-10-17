@@ -16,46 +16,13 @@
  */
 #include "common.h"
 #include "node.h"
+#include "base.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/*
- * Placeholder for the base station rank (NOT Task 2).
- *
- * Task 1 nodes keep running until they receive TAG_TERMINATE from the base
- * station rank, so some process has to occupy that rank and send the message.
- * This function waits for cfg->duration_s and then sends the termination
- * message to every node. It does not listen for congestion reports, compute
- * nearest available nodes, reply, or log anything; reports sent by the nodes
- * during the run go unanswered (the node logs a timeout warning and carries on).
- * Task 2 replaces this function with the real base station.
- */
-static int base_placeholder(const Config *cfg, MPI_Comm world, int n_nodes)
-{
-    const double t0 = MPI_Wtime();
-    printf("[base placeholder] no base station implemented; terminating %d nodes after %.1f s\n",
-           n_nodes, cfg->duration_s);
-    fflush(stdout);
-    while (MPI_Wtime() - t0 < cfg->duration_s)
-        sleep_ms(100);
 
-    MPI_Request *req = malloc((size_t)n_nodes * sizeof *req);
-    if (!req) {
-        fprintf(stderr, "base placeholder: out of memory\n");
-        return 1;
-    }
-    double t_term = MPI_Wtime();
-    for (int i = 0; i < n_nodes; i++)
-        MPI_Isend(&t_term, 1, MPI_DOUBLE, i, TAG_TERMINATE, world, &req[i]);
-    MPI_Waitall(n_nodes, req, MPI_STATUSES_IGNORE);
-    free(req);
-
-    printf("[base placeholder] termination message sent to %d nodes\n", n_nodes);
-    fflush(stdout);
-    return 0;
-}
 
 static void usage(const char *prog)
 {
@@ -140,7 +107,7 @@ int main(int argc, char **argv)
     MPI_Comm_split(MPI_COMM_WORLD, colour, rank, &split_comm);
 
     if (rank == base_rank) {
-        rc = base_placeholder(&cfg, MPI_COMM_WORLD, n_nodes);
+        rc = base_main(&cfg, MPI_COMM_WORLD, n_nodes);
     } else {
         rc = node_main(&cfg, split_comm, MPI_COMM_WORLD, base_rank);
     }
@@ -148,9 +115,10 @@ int main(int argc, char **argv)
     MPI_Comm_free(&split_comm);
     MPI_Barrier(MPI_COMM_WORLD);   /* everyone has finished its own graceful shutdown */
     if (rank == base_rank) {
-        printf("[base placeholder] all processes reached the final barrier, finalising MPI\n");
+        printf("[base] all processes reached the final barrier, finalising MPI\n");
         fflush(stdout);
     }
+    
     MPI_Finalize();
     return rc;
 }
