@@ -1,0 +1,2424 @@
+# EV charging base station (rank 225)
+# grid            : 15 x 15 (225 nodes + 1 base station)
+# ports per node  : 6
+# threshold       : 2 free ports (congested if availability < threshold)
+# update cycle    : 1.00 s
+# base period T   : 10.00 s
+# duration        : 8.00 s
+# seed            : 2
+# congestion prob : 0.80
+# comm version    : 2
+# message sizes   : NbrRequest=16 B, NbrReply=96 B, Report=288 B, BaseReply=120 B, Terminate=8 B
+# Two-hop recommendation; absence of a report is not proof of free ports.
+
+[t=1.202] ALERT #1: source=33, seq=1, coord=(2,3), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.008593 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 18 (1,3), replied=1, free=1, RTT=0.001178 s
+  bottom neighbour: node 48 (3,3), replied=1, free=1, RTT=0.008583 s
+  left   neighbour: node 32 (2,2), replied=1, free=0, RTT=0.005276 s
+  right  neighbour: node 34 (2,4), replied=1, free=0, RTT=0.001924 s
+  recommendation for node 33, report #1: node 3 (0,3), node 17 (1,2), node 19 (1,4), node 31 (2,1), node 35 (2,5), node 47 (3,2), node 49 (3,4), node 63 (4,3)
+
+[t=1.216] ALERT #2: source=3, seq=1, coord=(0,3), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005349 s
+  cumulative neighbour traffic: msgs sent=4 recv=4, bytes sent=144 recv=304
+  bottom neighbour: node 18 (1,3), replied=1, free=1, RTT=0.002287 s
+  left   neighbour: node 2 (0,2), replied=1, free=0, RTT=0.005341 s
+  right  neighbour: node 4 (0,4), replied=1, free=0, RTT=0.003481 s
+  recommendation for node 3, report #1: node 1 (0,1), node 5 (0,5), node 17 (1,2), node 19 (1,4)
+
+[t=1.237] ALERT #3: source=19, seq=1, coord=(1,4), discovered=2026-10-17 19:15:36, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003523 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 4 (0,4), replied=1, free=0, RTT=0.003514 s
+  bottom neighbour: node 34 (2,4), replied=1, free=0, RTT=0.001132 s
+  left   neighbour: node 18 (1,3), replied=1, free=1, RTT=0.002411 s
+  right  neighbour: node 20 (1,5), replied=1, free=1, RTT=0.002428 s
+  recommendation for node 19, report #1: node 5 (0,5), node 17 (1,2), node 21 (1,6), node 35 (2,5), node 49 (3,4)
+
+[t=1.249] ALERT #4: source=13, seq=1, coord=(0,13), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.001145 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=336 recv=336
+  bottom neighbour: node 28 (1,13), replied=1, free=1, RTT=0.001133 s
+  left   neighbour: node 12 (0,12), replied=1, free=1, RTT=0.001141 s
+  right  neighbour: node 14 (0,14), replied=1, free=1, RTT=0.001143 s
+  recommendation for node 13, report #1: node 11 (0,11), node 27 (1,12), node 29 (1,14), node 43 (2,13)
+
+[t=1.276] ALERT #5: source=81, seq=1, coord=(5,6), discovered=2026-10-17 19:15:35, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.517855 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 66 (4,6), replied=1, free=1, RTT=0.517842 s
+  bottom neighbour: node 96 (6,6), replied=1, free=1, RTT=0.467047 s
+  left   neighbour: node 80 (5,5), replied=1, free=1, RTT=0.413859 s
+  right  neighbour: node 82 (5,7), replied=1, free=1, RTT=0.486548 s
+  recommendation for node 81, report #1: node 51 (3,6), node 65 (4,5), node 67 (4,7), node 79 (5,4), node 83 (5,8), node 95 (6,5), node 97 (6,7), node 111 (7,6)
+
+[t=1.318] ALERT #6: source=18, seq=1, coord=(1,3), discovered=2026-10-17 19:15:35, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.780582 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 3 (0,3), replied=1, free=1, RTT=0.668305 s
+  bottom neighbour: node 33 (2,3), replied=1, free=1, RTT=0.651644 s
+  left   neighbour: node 17 (1,2), replied=1, free=1, RTT=0.780576 s
+  right  neighbour: node 19 (1,4), replied=1, free=0, RTT=0.696334 s
+  recommendation for node 18, report #1: node 16 (1,1)
+
+[t=1.320] ALERT #7: source=17, seq=1, coord=(1,2), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006019 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 2 (0,2), replied=1, free=0, RTT=0.006012 s
+  bottom neighbour: node 32 (2,2), replied=1, free=0, RTT=0.001116 s
+  left   neighbour: node 16 (1,1), replied=1, free=1, RTT=0.002723 s
+  right  neighbour: node 18 (1,3), replied=1, free=1, RTT=0.002729 s
+  recommendation for node 17, report #1: node 1 (0,1), node 15 (1,0), node 31 (2,1), node 47 (3,2)
+
+[t=1.352] ALERT #8: source=14, seq=1, coord=(0,14), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=2 recv=2, bytes sent=32 recv=192, exchange_time=0.135024 s
+  cumulative neighbour traffic: msgs sent=3 recv=3, bytes sent=128 recv=208
+  bottom neighbour: node 29 (1,14), replied=1, free=1, RTT=0.134381 s
+  left   neighbour: node 13 (0,13), replied=1, free=1, RTT=0.028484 s
+  recommendation for node 14, report #1: node 44 (2,14)
+
+[t=1.390] ALERT #9: source=48, seq=1, coord=(3,3), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.193362 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 33 (2,3), replied=1, free=1, RTT=0.003037 s
+  bottom neighbour: node 63 (4,3), replied=1, free=1, RTT=0.005242 s
+  left   neighbour: node 47 (3,2), replied=1, free=1, RTT=0.001135 s
+  right  neighbour: node 49 (3,4), replied=1, free=0, RTT=0.193352 s
+  recommendation for node 48, report #1: node 46 (3,1), node 50 (3,5), node 62 (4,2), node 64 (4,4), node 78 (5,3)
+
+[t=1.392] ALERT #10: source=34, seq=1, coord=(2,4), discovered=2026-10-17 19:15:35, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.573103 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 19 (1,4), replied=1, free=0, RTT=0.416125 s
+  bottom neighbour: node 49 (3,4), replied=1, free=1, RTT=0.573094 s
+  left   neighbour: node 33 (2,3), replied=1, free=1, RTT=0.371264 s
+  right  neighbour: node 35 (2,5), replied=1, free=1, RTT=0.406706 s
+  recommendation for node 34, report #1: node 36 (2,6), node 50 (3,5), node 64 (4,4)
+
+[t=1.460] ALERT #11: source=83, seq=1, coord=(5,8), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.095415 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 68 (4,8), replied=1, free=1, RTT=0.001218 s
+  bottom neighbour: node 98 (6,8), replied=1, free=1, RTT=0.095405 s
+  left   neighbour: node 82 (5,7), replied=1, free=1, RTT=0.001232 s
+  right  neighbour: node 84 (5,9), replied=1, free=1, RTT=0.001234 s
+  recommendation for node 83, report #1: node 53 (3,8), node 67 (4,7), node 69 (4,9), node 85 (5,10), node 97 (6,7), node 99 (6,9), node 113 (7,8)
+
+[t=1.522] ALERT #12: source=12, seq=2, coord=(0,12), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.008753 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=384 recv=624
+  bottom neighbour: node 27 (1,12), replied=1, free=0, RTT=0.003355 s
+  left   neighbour: node 11 (0,11), replied=1, free=1, RTT=0.002236 s
+  right  neighbour: node 13 (0,13), replied=1, free=1, RTT=0.005913 s
+  recommendation for node 12, report #2: node 10 (0,10), node 26 (1,11), node 42 (2,12)
+
+[t=1.539] ALERT #13: source=62, seq=1, coord=(4,2), discovered=2026-10-17 19:15:36, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.281454 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 47 (3,2), replied=1, free=1, RTT=0.001126 s
+  bottom neighbour: node 77 (5,2), replied=1, free=1, RTT=0.082564 s
+  left   neighbour: node 61 (4,1), replied=1, free=1, RTT=0.281444 s
+  right  neighbour: node 63 (4,3), replied=1, free=1, RTT=0.005508 s
+  recommendation for node 62, report #1: node 46 (3,1), node 60 (4,0), node 64 (4,4), node 76 (5,1), node 78 (5,3), node 92 (6,2)
+
+[t=1.552] ALERT #14: source=18, seq=2, coord=(1,3), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006384 s
+  cumulative neighbour traffic: msgs sent=12 recv=12, bytes sent=512 recv=832
+  top    neighbour: node 3 (0,3), replied=1, free=1, RTT=0.005177 s
+  bottom neighbour: node 33 (2,3), replied=1, free=1, RTT=0.002390 s
+  left   neighbour: node 17 (1,2), replied=1, free=0, RTT=0.006374 s
+  right  neighbour: node 19 (1,4), replied=1, free=0, RTT=0.004041 s
+  recommendation for node 18, report #2: NO nearby nodes available
+
+[t=1.597] ALERT #15: source=69, seq=1, coord=(4,9), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.257049 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 54 (3,9), replied=1, free=1, RTT=0.257037 s
+  bottom neighbour: node 84 (5,9), replied=1, free=1, RTT=0.001088 s
+  left   neighbour: node 68 (4,8), replied=1, free=1, RTT=0.002154 s
+  right  neighbour: node 70 (4,10), replied=1, free=1, RTT=0.126157 s
+  recommendation for node 69, report #1: node 39 (2,9), node 53 (3,8), node 55 (3,10), node 67 (4,7), node 71 (4,11), node 85 (5,10), node 99 (6,9)
+
+[t=1.610] ALERT #16: source=101, seq=1, coord=(6,11), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.300344 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 86 (5,11), replied=1, free=1, RTT=0.300330 s
+  bottom neighbour: node 116 (7,11), replied=1, free=0, RTT=0.001130 s
+  left   neighbour: node 100 (6,10), replied=1, free=1, RTT=0.002257 s
+  right  neighbour: node 102 (6,12), replied=1, free=1, RTT=0.009339 s
+  recommendation for node 101, report #1: node 71 (4,11), node 85 (5,10), node 87 (5,12), node 99 (6,9), node 103 (6,13), node 115 (7,10), node 117 (7,12), node 131 (8,11)
+
+[t=1.650] ALERT #17: source=11, seq=2, coord=(0,11), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005054 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=288 recv=608
+  bottom neighbour: node 26 (1,11), replied=1, free=1, RTT=0.003355 s
+  left   neighbour: node 10 (0,10), replied=1, free=1, RTT=0.001121 s
+  right  neighbour: node 12 (0,12), replied=1, free=1, RTT=0.005039 s
+  recommendation for node 11, report #2: node 9 (0,9), node 25 (1,10), node 41 (2,11)
+
+[t=1.713] ALERT #18: source=220, seq=1, coord=(14,10), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004151 s
+  cumulative neighbour traffic: msgs sent=5 recv=5, bytes sent=240 recv=320
+  top    neighbour: node 205 (13,10), replied=1, free=1, RTT=0.004141 s
+  left   neighbour: node 219 (14,9), replied=1, free=1, RTT=0.002398 s
+  right  neighbour: node 221 (14,11), replied=1, free=1, RTT=0.003031 s
+  recommendation for node 220, report #1: node 190 (12,10), node 204 (13,9), node 206 (13,11), node 218 (14,8), node 222 (14,12)
+
+[t=1.717] ALERT #19: source=87, seq=1, coord=(5,12), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003380 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 72 (4,12), replied=1, free=1, RTT=0.001316 s
+  bottom neighbour: node 102 (6,12), replied=1, free=1, RTT=0.003293 s
+  left   neighbour: node 86 (5,11), replied=1, free=1, RTT=0.003373 s
+  right  neighbour: node 88 (5,13), replied=1, free=1, RTT=0.003378 s
+  recommendation for node 87, report #1: node 57 (3,12), node 71 (4,11), node 73 (4,13), node 85 (5,10), node 89 (5,14), node 103 (6,13), node 117 (7,12)
+
+[t=1.731] ALERT #20: source=149, seq=1, coord=(9,14), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.239525 s
+  cumulative neighbour traffic: msgs sent=5 recv=5, bytes sent=240 recv=320
+  top    neighbour: node 134 (8,14), replied=1, free=1, RTT=0.239515 s
+  bottom neighbour: node 164 (10,14), replied=1, free=0, RTT=0.002239 s
+  left   neighbour: node 148 (9,13), replied=1, free=1, RTT=0.002927 s
+  recommendation for node 149, report #1: node 119 (7,14), node 133 (8,13), node 147 (9,12), node 163 (10,13), node 179 (11,14)
+
+[t=1.765] ALERT #21: source=47, seq=1, coord=(3,2), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.660803 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 32 (2,2), replied=1, free=0, RTT=0.093816 s
+  bottom neighbour: node 62 (4,2), replied=1, free=0, RTT=0.148483 s
+  left   neighbour: node 46 (3,1), replied=1, free=1, RTT=0.660793 s
+  right  neighbour: node 48 (3,3), replied=1, free=1, RTT=0.096072 s
+  recommendation for node 47, report #1: node 31 (2,1), node 45 (3,0)
+
+[t=1.768] ALERT #22: source=81, seq=2, coord=(5,6), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.001404 s
+  cumulative neighbour traffic: msgs sent=12 recv=12, bytes sent=512 recv=832
+  top    neighbour: node 66 (4,6), replied=1, free=1, RTT=0.001348 s
+  bottom neighbour: node 96 (6,6), replied=1, free=1, RTT=0.000182 s
+  left   neighbour: node 80 (5,5), replied=1, free=1, RTT=0.001359 s
+  right  neighbour: node 82 (5,7), replied=1, free=0, RTT=0.001362 s
+  recommendation for node 81, report #2: node 51 (3,6), node 65 (4,5), node 67 (4,7), node 79 (5,4), node 95 (6,5), node 97 (6,7), node 111 (7,6)
+
+[t=1.771] ALERT #23: source=102, seq=1, coord=(6,12), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.453252 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 87 (5,12), replied=1, free=0, RTT=0.001224 s
+  bottom neighbour: node 117 (7,12), replied=1, free=1, RTT=0.453242 s
+  left   neighbour: node 101 (6,11), replied=1, free=1, RTT=0.001241 s
+  right  neighbour: node 103 (6,13), replied=1, free=0, RTT=0.003133 s
+  recommendation for node 102, report #1: node 104 (6,14), node 118 (7,13), node 132 (8,12)
+
+[t=1.772] ALERT #24: source=197, seq=1, coord=(13,2), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.074734 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 182 (12,2), replied=1, free=0, RTT=0.001822 s
+  bottom neighbour: node 212 (14,2), replied=1, free=0, RTT=0.001833 s
+  left   neighbour: node 196 (13,1), replied=1, free=0, RTT=0.001836 s
+  right  neighbour: node 198 (13,3), replied=1, free=1, RTT=0.074724 s
+  recommendation for node 197, report #1: node 167 (11,2), node 181 (12,1), node 183 (12,3), node 195 (13,0), node 199 (13,4), node 211 (14,1), node 213 (14,3)
+
+[t=1.790] ALERT #25: source=118, seq=1, coord=(7,13), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.174938 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 103 (6,13), replied=1, free=0, RTT=0.001383 s
+  bottom neighbour: node 133 (8,13), replied=1, free=0, RTT=0.001394 s
+  left   neighbour: node 117 (7,12), replied=1, free=1, RTT=0.154740 s
+  right  neighbour: node 119 (7,14), replied=1, free=1, RTT=0.174930 s
+  recommendation for node 118, report #1: node 104 (6,14), node 132 (8,12)
+
+[t=1.793] ALERT #26: source=134, seq=1, coord=(8,14), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.060272 s
+  cumulative neighbour traffic: msgs sent=5 recv=5, bytes sent=240 recv=320
+  top    neighbour: node 119 (7,14), replied=1, free=1, RTT=0.060262 s
+  bottom neighbour: node 149 (9,14), replied=1, free=0, RTT=0.009145 s
+  left   neighbour: node 133 (8,13), replied=1, free=0, RTT=0.002492 s
+  recommendation for node 134, report #1: node 104 (6,14), node 132 (8,12)
+
+[t=1.809] ALERT #27: source=166, seq=1, coord=(11,1), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.544839 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 151 (10,1), replied=1, free=0, RTT=0.004433 s
+  bottom neighbour: node 181 (12,1), replied=1, free=1, RTT=0.544830 s
+  left   neighbour: node 165 (11,0), replied=1, free=1, RTT=0.001169 s
+  right  neighbour: node 167 (11,2), replied=1, free=1, RTT=0.420781 s
+  recommendation for node 166, report #1: node 136 (9,1), node 150 (10,0), node 152 (10,2), node 168 (11,3), node 180 (12,0)
+
+[t=1.812] ALERT #28: source=182, seq=1, coord=(12,2), discovered=2026-10-17 19:15:35, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.792044 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 167 (11,2), replied=1, free=1, RTT=0.668457 s
+  bottom neighbour: node 197 (13,2), replied=1, free=1, RTT=0.678779 s
+  left   neighbour: node 181 (12,1), replied=1, free=1, RTT=0.792035 s
+  right  neighbour: node 183 (12,3), replied=1, free=1, RTT=0.663989 s
+  recommendation for node 182, report #1: node 152 (10,2), node 168 (11,3), node 180 (12,0), node 184 (12,4)
+
+[t=1.814] ALERT #29: source=119, seq=1, coord=(7,14), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.025024 s
+  cumulative neighbour traffic: msgs sent=5 recv=5, bytes sent=240 recv=320
+  top    neighbour: node 104 (6,14), replied=1, free=1, RTT=0.025017 s
+  bottom neighbour: node 134 (8,14), replied=1, free=1, RTT=0.002249 s
+  left   neighbour: node 118 (7,13), replied=1, free=1, RTT=0.002888 s
+  recommendation for node 119, report #1: node 89 (5,14)
+
+[t=1.817] ALERT #30: source=181, seq=1, coord=(12,1), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003155 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 166 (11,1), replied=1, free=0, RTT=0.002487 s
+  bottom neighbour: node 196 (13,1), replied=1, free=0, RTT=0.001205 s
+  left   neighbour: node 180 (12,0), replied=1, free=1, RTT=0.002495 s
+  right  neighbour: node 182 (12,2), replied=1, free=0, RTT=0.002497 s
+  recommendation for node 181, report #1: node 195 (13,0), node 211 (14,1)
+
+[t=1.820] ALERT #31: source=0, seq=1, coord=(0,0), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=2 recv=2, bytes sent=32 recv=192, exchange_time=0.663787 s
+  cumulative neighbour traffic: msgs sent=2 recv=2, bytes sent=32 recv=192
+  bottom neighbour: node 15 (1,0), replied=1, free=1, RTT=0.663764 s
+  right  neighbour: node 1 (0,1), replied=1, free=1, RTT=0.001128 s
+  recommendation for node 0, report #1: node 30 (2,0)
+
+[t=1.822] ALERT #32: source=169, seq=1, coord=(11,4), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.427192 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 154 (10,4), replied=1, free=1, RTT=0.009179 s
+  bottom neighbour: node 184 (12,4), replied=1, free=1, RTT=0.053064 s
+  left   neighbour: node 168 (11,3), replied=1, free=1, RTT=0.427182 s
+  right  neighbour: node 170 (11,5), replied=1, free=0, RTT=0.063051 s
+  recommendation for node 169, report #1: node 139 (9,4), node 153 (10,3), node 155 (10,5), node 171 (11,6), node 185 (12,5), node 199 (13,4)
+
+[t=1.836] ALERT #33: source=64, seq=1, coord=(4,4), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.485371 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 49 (3,4), replied=1, free=0, RTT=0.043766 s
+  bottom neighbour: node 79 (5,4), replied=1, free=1, RTT=0.485364 s
+  left   neighbour: node 63 (4,3), replied=1, free=1, RTT=0.004513 s
+  right  neighbour: node 65 (4,5), replied=1, free=1, RTT=0.001214 s
+  recommendation for node 64, report #1: node 50 (3,5), node 78 (5,3), node 94 (6,4)
+
+[t=1.838] ALERT #34: source=80, seq=1, coord=(5,5), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.662548 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 65 (4,5), replied=1, free=0, RTT=0.001181 s
+  bottom neighbour: node 95 (6,5), replied=1, free=1, RTT=0.001188 s
+  left   neighbour: node 79 (5,4), replied=1, free=1, RTT=0.662263 s
+  right  neighbour: node 81 (5,6), replied=1, free=1, RTT=0.001192 s
+  recommendation for node 80, report #1: node 50 (3,5), node 78 (5,3), node 94 (6,4), node 110 (7,5)
+
+[t=1.843] ALERT #35: source=79, seq=1, coord=(5,4), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004248 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 64 (4,4), replied=1, free=1, RTT=0.003535 s
+  bottom neighbour: node 94 (6,4), replied=1, free=1, RTT=0.002406 s
+  left   neighbour: node 78 (5,3), replied=1, free=1, RTT=0.002416 s
+  right  neighbour: node 80 (5,5), replied=1, free=1, RTT=0.002418 s
+  recommendation for node 79, report #1: node 93 (6,3), node 109 (7,4)
+
+[t=1.844] ALERT #36: source=32, seq=1, coord=(2,2), discovered=2026-10-17 19:15:36, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.655650 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 17 (1,2), replied=1, free=1, RTT=0.124231 s
+  bottom neighbour: node 47 (3,2), replied=1, free=1, RTT=0.001145 s
+  left   neighbour: node 31 (2,1), replied=1, free=1, RTT=0.655641 s
+  right  neighbour: node 33 (2,3), replied=1, free=1, RTT=0.001800 s
+  recommendation for node 32, report #1: node 30 (2,0)
+
+[t=1.861] ALERT #37: source=96, seq=1, coord=(6,6), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.637012 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 81 (5,6), replied=1, free=1, RTT=0.002259 s
+  bottom neighbour: node 111 (7,6), replied=1, free=1, RTT=0.637001 s
+  left   neighbour: node 95 (6,5), replied=1, free=1, RTT=0.002898 s
+  right  neighbour: node 97 (6,7), replied=1, free=0, RTT=0.002903 s
+  recommendation for node 96, report #1: node 110 (7,5), node 112 (7,7), node 126 (8,6)
+
+[t=1.877] ALERT #38: source=68, seq=1, coord=(4,8), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.573971 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 53 (3,8), replied=1, free=0, RTT=0.445906 s
+  bottom neighbour: node 83 (5,8), replied=1, free=1, RTT=0.061453 s
+  left   neighbour: node 67 (4,7), replied=1, free=1, RTT=0.573948 s
+  right  neighbour: node 69 (4,9), replied=1, free=1, RTT=0.037353 s
+  recommendation for node 68, report #1: node 38 (2,8), node 52 (3,7)
+
+[t=1.879] ALERT #39: source=82, seq=1, coord=(5,7), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.634753 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 67 (4,7), replied=1, free=1, RTT=0.634725 s
+  bottom neighbour: node 97 (6,7), replied=1, free=0, RTT=0.004558 s
+  left   neighbour: node 81 (5,6), replied=1, free=1, RTT=0.001235 s
+  right  neighbour: node 83 (5,8), replied=1, free=1, RTT=0.122431 s
+  recommendation for node 82, report #1: node 52 (3,7), node 112 (7,7)
+
+[t=1.880] ALERT #40: source=86, seq=1, coord=(5,11), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.279629 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 71 (4,11), replied=1, free=1, RTT=0.279620 s
+  bottom neighbour: node 101 (6,11), replied=1, free=1, RTT=0.006689 s
+  left   neighbour: node 85 (5,10), replied=1, free=1, RTT=0.006704 s
+  right  neighbour: node 87 (5,12), replied=1, free=1, RTT=0.002476 s
+  recommendation for node 86, report #1: node 56 (3,11)
+
+[t=1.884] ALERT #41: source=180, seq=1, coord=(12,0), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.429612 s
+  cumulative neighbour traffic: msgs sent=5 recv=5, bytes sent=240 recv=320
+  top    neighbour: node 165 (11,0), replied=1, free=1, RTT=0.001054 s
+  bottom neighbour: node 195 (13,0), replied=1, free=1, RTT=0.429603 s
+  right  neighbour: node 181 (12,1), replied=1, free=1, RTT=0.356361 s
+  recommendation for node 180, report #1: node 150 (10,0), node 210 (14,0)
+
+[t=1.886] ALERT #42: source=52, seq=1, coord=(3,7), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.706350 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 37 (2,7), replied=1, free=1, RTT=0.001263 s
+  bottom neighbour: node 67 (4,7), replied=1, free=1, RTT=0.705469 s
+  left   neighbour: node 51 (3,6), replied=1, free=1, RTT=0.622835 s
+  right  neighbour: node 53 (3,8), replied=1, free=0, RTT=0.576045 s
+  recommendation for node 52, report #1: node 22 (1,7), node 36 (2,6), node 38 (2,8), node 50 (3,5)
+
+[t=1.887] ALERT #43: source=66, seq=1, coord=(4,6), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.604522 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 51 (3,6), replied=1, free=1, RTT=0.521472 s
+  bottom neighbour: node 81 (5,6), replied=1, free=1, RTT=0.003411 s
+  left   neighbour: node 65 (4,5), replied=1, free=1, RTT=0.001165 s
+  right  neighbour: node 67 (4,7), replied=1, free=1, RTT=0.603676 s
+  recommendation for node 66, report #1: node 36 (2,6), node 50 (3,5)
+
+[t=1.889] ALERT #44: source=84, seq=1, coord=(5,9), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.706002 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 69 (4,9), replied=1, free=1, RTT=0.154529 s
+  bottom neighbour: node 99 (6,9), replied=1, free=1, RTT=0.705994 s
+  left   neighbour: node 83 (5,8), replied=1, free=1, RTT=0.177406 s
+  right  neighbour: node 85 (5,10), replied=1, free=1, RTT=0.329788 s
+  recommendation for node 84, report #1: node 114 (7,9)
+
+[t=1.891] ALERT #45: source=184, seq=1, coord=(12,4), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.443690 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 169 (11,4), replied=1, free=1, RTT=0.002206 s
+  bottom neighbour: node 199 (13,4), replied=1, free=1, RTT=0.443680 s
+  left   neighbour: node 183 (12,3), replied=1, free=0, RTT=0.234510 s
+  right  neighbour: node 185 (12,5), replied=1, free=1, RTT=0.310108 s
+  recommendation for node 184, report #1: node 186 (12,6), node 200 (13,5), node 214 (14,4)
+
+[t=1.892] ALERT #46: source=198, seq=1, coord=(13,3), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.117155 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 183 (12,3), replied=1, free=0, RTT=0.001175 s
+  bottom neighbour: node 213 (14,3), replied=1, free=1, RTT=0.005823 s
+  left   neighbour: node 197 (13,2), replied=1, free=0, RTT=0.002401 s
+  right  neighbour: node 199 (13,4), replied=1, free=1, RTT=0.116190 s
+  recommendation for node 198, report #1: node 200 (13,5), node 214 (14,4)
+
+[t=1.894] ALERT #47: source=65, seq=1, coord=(4,5), discovered=2026-10-17 19:15:35, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=1.426784 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 50 (3,5), replied=1, free=1, RTT=1.426777 s
+  bottom neighbour: node 80 (5,5), replied=1, free=1, RTT=0.697318 s
+  left   neighbour: node 64 (4,4), replied=1, free=1, RTT=0.875264 s
+  right  neighbour: node 66 (4,6), replied=1, free=1, RTT=0.800899 s
+  recommendation for node 65, report #1: NO nearby nodes available
+
+[t=1.897] ALERT #48: source=115, seq=1, coord=(7,10), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.095158 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 100 (6,10), replied=1, free=1, RTT=0.001240 s
+  bottom neighbour: node 130 (8,10), replied=1, free=1, RTT=0.005036 s
+  left   neighbour: node 114 (7,9), replied=1, free=1, RTT=0.095150 s
+  right  neighbour: node 116 (7,11), replied=1, free=1, RTT=0.002783 s
+  recommendation for node 115, report #1: node 113 (7,8), node 129 (8,9), node 131 (8,11), node 145 (9,10)
+
+[t=1.898] ALERT #49: source=129, seq=1, coord=(8,9), discovered=2026-10-17 19:15:35, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=1.151912 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 114 (7,9), replied=1, free=1, RTT=1.151903 s
+  bottom neighbour: node 144 (9,9), replied=1, free=1, RTT=0.004392 s
+  left   neighbour: node 128 (8,8), replied=1, free=1, RTT=0.818003 s
+  right  neighbour: node 130 (8,10), replied=1, free=1, RTT=0.433280 s
+  recommendation for node 129, report #1: node 113 (7,8), node 127 (8,7), node 131 (8,11), node 143 (9,8), node 145 (9,10), node 159 (10,9)
+
+[t=1.899] ALERT #50: source=179, seq=1, coord=(11,14), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.876696 s
+  cumulative neighbour traffic: msgs sent=4 recv=4, bytes sent=144 recv=304
+  top    neighbour: node 164 (10,14), replied=1, free=1, RTT=0.369005 s
+  bottom neighbour: node 194 (12,14), replied=1, free=1, RTT=0.005489 s
+  left   neighbour: node 178 (11,13), replied=1, free=1, RTT=0.876689 s
+  recommendation for node 179, report #1: node 163 (10,13), node 177 (11,12), node 193 (12,13), node 209 (13,14)
+
+[t=1.900] ALERT #51: source=35, seq=1, coord=(2,5), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.675474 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 20 (1,5), replied=1, free=1, RTT=0.001217 s
+  bottom neighbour: node 50 (3,5), replied=1, free=1, RTT=0.674410 s
+  left   neighbour: node 34 (2,4), replied=1, free=0, RTT=0.001752 s
+  right  neighbour: node 36 (2,6), replied=1, free=1, RTT=0.001759 s
+  recommendation for node 35, report #1: node 5 (0,5), node 21 (1,6)
+
+[t=1.901] ALERT #52: source=49, seq=1, coord=(3,4), discovered=2026-10-17 19:15:36, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.509544 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 34 (2,4), replied=1, free=0, RTT=0.002269 s
+  bottom neighbour: node 64 (4,4), replied=1, free=1, RTT=0.001178 s
+  left   neighbour: node 48 (3,3), replied=1, free=1, RTT=0.001188 s
+  right  neighbour: node 50 (3,5), replied=1, free=1, RTT=0.508713 s
+  recommendation for node 49, report #1: NO nearby nodes available
+
+[t=1.902] ALERT #53: source=50, seq=1, coord=(3,5), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004571 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=544 recv=464
+  top    neighbour: node 35 (2,5), replied=1, free=1, RTT=0.003627 s
+  bottom neighbour: node 65 (4,5), replied=1, free=1, RTT=0.001366 s
+  left   neighbour: node 49 (3,4), replied=1, free=0, RTT=0.003636 s
+  right  neighbour: node 51 (3,6), replied=1, free=1, RTT=0.004064 s
+  recommendation for node 50, report #1: NO nearby nodes available
+
+[t=1.903] ALERT #54: source=51, seq=1, coord=(3,6), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.105933 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 36 (2,6), replied=1, free=0, RTT=0.002381 s
+  bottom neighbour: node 66 (4,6), replied=1, free=1, RTT=0.001239 s
+  left   neighbour: node 50 (3,5), replied=1, free=1, RTT=0.105094 s
+  right  neighbour: node 52 (3,7), replied=1, free=0, RTT=0.001254 s
+  recommendation for node 51, report #1: node 21 (1,6)
+
+[t=1.904] ALERT #55: source=113, seq=2, coord=(7,8), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004203 s
+  cumulative neighbour traffic: msgs sent=12 recv=12, bytes sent=512 recv=832
+  top    neighbour: node 98 (6,8), replied=1, free=0, RTT=0.001413 s
+  bottom neighbour: node 128 (8,8), replied=1, free=0, RTT=0.002439 s
+  left   neighbour: node 112 (7,7), replied=1, free=0, RTT=0.002443 s
+  right  neighbour: node 114 (7,9), replied=1, free=1, RTT=0.004178 s
+  recommendation for node 113, report #2: node 127 (8,7), node 143 (9,8)
+
+[t=1.905] ALERT #56: source=114, seq=1, coord=(7,9), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.002893 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 99 (6,9), replied=1, free=1, RTT=0.001226 s
+  bottom neighbour: node 129 (8,9), replied=1, free=1, RTT=0.002388 s
+  left   neighbour: node 113 (7,8), replied=1, free=1, RTT=0.001236 s
+  right  neighbour: node 115 (7,10), replied=1, free=1, RTT=0.002397 s
+  recommendation for node 114, report #1: NO nearby nodes available
+
+[t=1.905] ALERT #57: source=65, seq=2, coord=(4,5), discovered=2026-10-17 19:15:36, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005293 s
+  cumulative neighbour traffic: msgs sent=12 recv=12, bytes sent=512 recv=832
+  top    neighbour: node 50 (3,5), replied=1, free=1, RTT=0.001188 s
+  bottom neighbour: node 80 (5,5), replied=1, free=1, RTT=0.005283 s
+  left   neighbour: node 64 (4,4), replied=1, free=0, RTT=0.004150 s
+  right  neighbour: node 66 (4,6), replied=1, free=1, RTT=0.005291 s
+  recommendation for node 65, report #2: NO nearby nodes available
+
+[t=2.061] ALERT #58: source=103, seq=1, coord=(6,13), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006241 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 88 (5,13), replied=1, free=1, RTT=0.005136 s
+  bottom neighbour: node 118 (7,13), replied=1, free=0, RTT=0.006226 s
+  left   neighbour: node 102 (6,12), replied=1, free=1, RTT=0.006238 s
+  right  neighbour: node 104 (6,14), replied=1, free=1, RTT=0.005150 s
+  recommendation for node 103, report #1: node 73 (4,13), node 89 (5,14)
+
+[t=2.092] ALERT #59: source=63, seq=1, coord=(4,3), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005986 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 48 (3,3), replied=1, free=1, RTT=0.001148 s
+  bottom neighbour: node 78 (5,3), replied=1, free=1, RTT=0.005648 s
+  left   neighbour: node 62 (4,2), replied=1, free=1, RTT=0.002254 s
+  right  neighbour: node 64 (4,4), replied=1, free=1, RTT=0.005680 s
+  recommendation for node 63, report #1: node 93 (6,3)
+
+[t=2.155] ALERT #60: source=203, seq=1, coord=(13,8), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005539 s
+  cumulative neighbour traffic: msgs sent=5 recv=5, bytes sent=160 recv=400
+  top    neighbour: node 188 (12,8), replied=1, free=1, RTT=0.005498 s
+  bottom neighbour: node 218 (14,8), replied=1, free=1, RTT=0.005517 s
+  left   neighbour: node 202 (13,7), replied=1, free=1, RTT=0.001292 s
+  right  neighbour: node 204 (13,9), replied=1, free=1, RTT=0.003502 s
+  recommendation for node 203, report #1: node 173 (11,8), node 187 (12,7), node 189 (12,9), node 201 (13,6), node 217 (14,7)
+
+[t=2.167] ALERT #61: source=2, seq=1, coord=(0,2), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004594 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=336 recv=336
+  bottom neighbour: node 17 (1,2), replied=1, free=1, RTT=0.004584 s
+  left   neighbour: node 1 (0,1), replied=1, free=1, RTT=0.001184 s
+  right  neighbour: node 3 (0,3), replied=1, free=1, RTT=0.001193 s
+  recommendation for node 2, report #1: NO nearby nodes available
+
+[t=2.178] ALERT #62: source=52, seq=2, coord=(3,7), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004421 s
+  cumulative neighbour traffic: msgs sent=13 recv=13, bytes sent=608 recv=848
+  top    neighbour: node 37 (2,7), replied=1, free=0, RTT=0.001089 s
+  bottom neighbour: node 67 (4,7), replied=1, free=1, RTT=0.001096 s
+  left   neighbour: node 51 (3,6), replied=1, free=1, RTT=0.004411 s
+  right  neighbour: node 53 (3,8), replied=1, free=1, RTT=0.003274 s
+  recommendation for node 52, report #2: node 22 (1,7), node 38 (2,8)
+
+[t=2.180] ALERT #63: source=80, seq=2, coord=(5,5), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004806 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=800 recv=880
+  top    neighbour: node 65 (4,5), replied=1, free=1, RTT=0.003398 s
+  bottom neighbour: node 95 (6,5), replied=1, free=1, RTT=0.002284 s
+  left   neighbour: node 79 (5,4), replied=1, free=1, RTT=0.003410 s
+  right  neighbour: node 81 (5,6), replied=1, free=1, RTT=0.004797 s
+  recommendation for node 80, report #2: node 110 (7,5)
+
+[t=2.197] ALERT #64: source=9, seq=1, coord=(0,9), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004472 s
+  cumulative neighbour traffic: msgs sent=3 recv=3, bytes sent=48 recv=288
+  bottom neighbour: node 24 (1,9), replied=1, free=1, RTT=0.003344 s
+  left   neighbour: node 8 (0,8), replied=1, free=1, RTT=0.004459 s
+  right  neighbour: node 10 (0,10), replied=1, free=1, RTT=0.004468 s
+  recommendation for node 9, report #1: node 7 (0,7), node 23 (1,8), node 25 (1,10), node 39 (2,9)
+
+[t=2.198] ALERT #65: source=48, seq=2, coord=(3,3), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004591 s
+  cumulative neighbour traffic: msgs sent=14 recv=14, bytes sent=704 recv=864
+  top    neighbour: node 33 (2,3), replied=1, free=1, RTT=0.002404 s
+  bottom neighbour: node 63 (4,3), replied=1, free=1, RTT=0.001103 s
+  left   neighbour: node 47 (3,2), replied=1, free=1, RTT=0.001110 s
+  right  neighbour: node 49 (3,4), replied=1, free=1, RTT=0.004582 s
+  recommendation for node 48, report #2: NO nearby nodes available
+
+[t=2.220] ALERT #66: source=7, seq=1, coord=(0,7), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005326 s
+  cumulative neighbour traffic: msgs sent=4 recv=4, bytes sent=144 recv=304
+  bottom neighbour: node 22 (1,7), replied=1, free=0, RTT=0.004507 s
+  left   neighbour: node 6 (0,6), replied=1, free=1, RTT=0.004517 s
+  right  neighbour: node 8 (0,8), replied=1, free=1, RTT=0.003345 s
+  recommendation for node 7, report #1: node 5 (0,5), node 21 (1,6), node 23 (1,8)
+
+[t=2.252] ALERT #67: source=25, seq=1, coord=(1,10), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005026 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 10 (0,10), replied=1, free=1, RTT=0.001393 s
+  bottom neighbour: node 40 (2,10), replied=1, free=1, RTT=0.003691 s
+  left   neighbour: node 24 (1,9), replied=1, free=1, RTT=0.005014 s
+  right  neighbour: node 26 (1,11), replied=1, free=1, RTT=0.002615 s
+  recommendation for node 25, report #1: node 23 (1,8), node 39 (2,9), node 41 (2,11), node 55 (3,10)
+
+[t=2.254] ALERT #68: source=62, seq=2, coord=(4,2), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005892 s
+  cumulative neighbour traffic: msgs sent=13 recv=13, bytes sent=608 recv=848
+  top    neighbour: node 47 (3,2), replied=1, free=1, RTT=0.005501 s
+  bottom neighbour: node 77 (5,2), replied=1, free=1, RTT=0.004404 s
+  left   neighbour: node 61 (4,1), replied=1, free=1, RTT=0.003285 s
+  right  neighbour: node 63 (4,3), replied=1, free=1, RTT=0.005887 s
+  recommendation for node 62, report #2: node 60 (4,0), node 76 (5,1), node 92 (6,2)
+
+[t=2.281] ALERT #69: source=66, seq=2, coord=(4,6), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005647 s
+  cumulative neighbour traffic: msgs sent=14 recv=14, bytes sent=704 recv=864
+  top    neighbour: node 51 (3,6), replied=1, free=1, RTT=0.005635 s
+  bottom neighbour: node 81 (5,6), replied=1, free=1, RTT=0.005644 s
+  left   neighbour: node 65 (4,5), replied=1, free=0, RTT=0.003413 s
+  right  neighbour: node 67 (4,7), replied=1, free=0, RTT=0.002306 s
+  recommendation for node 66, report #2: NO nearby nodes available
+
+[t=2.292] ALERT #70: source=210, seq=1, coord=(14,0), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=2 recv=2, bytes sent=32 recv=192, exchange_time=0.002880 s
+  cumulative neighbour traffic: msgs sent=3 recv=3, bytes sent=128 recv=208
+  top    neighbour: node 195 (13,0), replied=1, free=1, RTT=0.001179 s
+  right  neighbour: node 211 (14,1), replied=1, free=1, RTT=0.002293 s
+  recommendation for node 210, report #1: NO nearby nodes available
+
+[t=2.319] ALERT #71: source=23, seq=2, coord=(1,8), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004430 s
+  cumulative neighbour traffic: msgs sent=10 recv=10, bytes sent=320 recv=800
+  top    neighbour: node 8 (0,8), replied=1, free=1, RTT=0.002356 s
+  bottom neighbour: node 38 (2,8), replied=1, free=1, RTT=0.002364 s
+  left   neighbour: node 22 (1,7), replied=1, free=0, RTT=0.004421 s
+  right  neighbour: node 24 (1,9), replied=1, free=1, RTT=0.002742 s
+  recommendation for node 23, report #2: node 21 (1,6), node 39 (2,9)
+
+[t=2.332] ALERT #72: source=60, seq=1, coord=(4,0), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005524 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=528 recv=368
+  top    neighbour: node 45 (3,0), replied=1, free=1, RTT=0.004422 s
+  bottom neighbour: node 75 (5,0), replied=1, free=0, RTT=0.005511 s
+  right  neighbour: node 61 (4,1), replied=1, free=1, RTT=0.005521 s
+  recommendation for node 60, report #1: node 30 (2,0), node 76 (5,1), node 90 (6,0)
+
+[t=2.334] ALERT #73: source=146, seq=2, coord=(9,11), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004563 s
+  cumulative neighbour traffic: msgs sent=13 recv=13, bytes sent=608 recv=848
+  top    neighbour: node 131 (8,11), replied=1, free=1, RTT=0.001132 s
+  bottom neighbour: node 161 (10,11), replied=1, free=1, RTT=0.002310 s
+  left   neighbour: node 145 (9,10), replied=1, free=1, RTT=0.003453 s
+  right  neighbour: node 147 (9,12), replied=1, free=1, RTT=0.004554 s
+  recommendation for node 146, report #2: node 132 (8,12), node 160 (10,10), node 162 (10,12), node 176 (11,11)
+
+[t=2.372] ALERT #74: source=74, seq=1, coord=(4,14), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005766 s
+  cumulative neighbour traffic: msgs sent=3 recv=3, bytes sent=48 recv=288
+  top    neighbour: node 59 (3,14), replied=1, free=0, RTT=0.004589 s
+  bottom neighbour: node 89 (5,14), replied=1, free=1, RTT=0.005755 s
+  left   neighbour: node 73 (4,13), replied=1, free=1, RTT=0.001234 s
+  recommendation for node 74, report #1: node 44 (2,14), node 58 (3,13)
+
+[t=2.373] ALERT #75: source=90, seq=2, coord=(6,0), discovered=2026-10-17 19:15:37, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005356 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=384 recv=624
+  top    neighbour: node 75 (5,0), replied=1, free=0, RTT=0.004893 s
+  bottom neighbour: node 105 (7,0), replied=1, free=0, RTT=0.003772 s
+  right  neighbour: node 91 (6,1), replied=1, free=1, RTT=0.001113 s
+  recommendation for node 90, report #2: node 76 (5,1), node 92 (6,2), node 106 (7,1), node 120 (8,0)
+
+[t=2.385] ALERT #76: source=8, seq=1, coord=(0,8), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004356 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=432 recv=352
+  bottom neighbour: node 23 (1,8), replied=1, free=1, RTT=0.004347 s
+  left   neighbour: node 7 (0,7), replied=1, free=0, RTT=0.003312 s
+  right  neighbour: node 9 (0,9), replied=1, free=1, RTT=0.002211 s
+  recommendation for node 8, report #1: NO nearby nodes available
+
+[t=2.407] ALERT #77: source=164, seq=2, coord=(10,14), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.007557 s
+  cumulative neighbour traffic: msgs sent=10 recv=10, bytes sent=480 recv=640
+  top    neighbour: node 149 (9,14), replied=1, free=1, RTT=0.003313 s
+  bottom neighbour: node 179 (11,14), replied=1, free=1, RTT=0.004420 s
+  left   neighbour: node 163 (10,13), replied=1, free=1, RTT=0.007547 s
+  recommendation for node 164, report #2: node 162 (10,12)
+
+[t=2.440] ALERT #78: source=221, seq=2, coord=(14,11), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004873 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=288 recv=608
+  top    neighbour: node 206 (13,11), replied=1, free=1, RTT=0.004864 s
+  left   neighbour: node 220 (14,10), replied=1, free=0, RTT=0.003349 s
+  right  neighbour: node 222 (14,12), replied=1, free=0, RTT=0.003360 s
+  recommendation for node 221, report #2: node 191 (12,11), node 207 (13,12), node 223 (14,13)
+
+[t=2.452] ALERT #79: source=122, seq=1, coord=(8,2), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006950 s
+  cumulative neighbour traffic: msgs sent=10 recv=10, bytes sent=640 recv=480
+  top    neighbour: node 107 (7,2), replied=1, free=1, RTT=0.002663 s
+  bottom neighbour: node 137 (9,2), replied=1, free=0, RTT=0.004906 s
+  left   neighbour: node 121 (8,1), replied=1, free=0, RTT=0.005424 s
+  right  neighbour: node 123 (8,3), replied=1, free=0, RTT=0.002674 s
+  recommendation for node 122, report #1: node 92 (6,2), node 106 (7,1), node 108 (7,3), node 120 (8,0), node 124 (8,4), node 136 (9,1), node 138 (9,3), node 152 (10,2)
+
+[t=2.484] ALERT #80: source=65, seq=3, coord=(4,5), discovered=2026-10-17 19:15:37, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003525 s
+  cumulative neighbour traffic: msgs sent=19 recv=19, bytes sent=864 recv=1264
+  top    neighbour: node 50 (3,5), replied=1, free=1, RTT=0.002229 s
+  bottom neighbour: node 80 (5,5), replied=1, free=1, RTT=0.002965 s
+  left   neighbour: node 64 (4,4), replied=1, free=1, RTT=0.002969 s
+  right  neighbour: node 66 (4,6), replied=1, free=1, RTT=0.002972 s
+  recommendation for node 65, report #3: NO nearby nodes available
+
+[t=2.486] ALERT #81: source=162, seq=2, coord=(10,12), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005694 s
+  cumulative neighbour traffic: msgs sent=13 recv=13, bytes sent=608 recv=848
+  top    neighbour: node 147 (9,12), replied=1, free=1, RTT=0.005683 s
+  bottom neighbour: node 177 (11,12), replied=1, free=1, RTT=0.004473 s
+  left   neighbour: node 161 (10,11), replied=1, free=1, RTT=0.004482 s
+  right  neighbour: node 163 (10,13), replied=1, free=1, RTT=0.003359 s
+  recommendation for node 162, report #2: node 132 (8,12), node 160 (10,10), node 176 (11,11), node 192 (12,12)
+
+[t=2.497] ALERT #82: source=145, seq=2, coord=(9,10), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005107 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=800 recv=880
+  top    neighbour: node 130 (8,10), replied=1, free=0, RTT=0.003410 s
+  bottom neighbour: node 160 (10,10), replied=1, free=1, RTT=0.005097 s
+  left   neighbour: node 144 (9,9), replied=1, free=1, RTT=0.002297 s
+  right  neighbour: node 146 (9,11), replied=1, free=1, RTT=0.003465 s
+  recommendation for node 145, report #2: node 143 (9,8), node 159 (10,9), node 175 (11,10)
+
+[t=2.508] ALERT #83: source=219, seq=2, coord=(14,9), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004938 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=384 recv=624
+  top    neighbour: node 204 (13,9), replied=1, free=1, RTT=0.003344 s
+  left   neighbour: node 218 (14,8), replied=1, free=1, RTT=0.001118 s
+  right  neighbour: node 220 (14,10), replied=1, free=1, RTT=0.004438 s
+  recommendation for node 219, report #2: node 189 (12,9), node 217 (14,7)
+
+[t=2.509] ALERT #84: source=21, seq=1, coord=(1,6), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005864 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=544 recv=464
+  top    neighbour: node 6 (0,6), replied=1, free=0, RTT=0.003393 s
+  bottom neighbour: node 36 (2,6), replied=1, free=1, RTT=0.003400 s
+  left   neighbour: node 20 (1,5), replied=1, free=1, RTT=0.003402 s
+  right  neighbour: node 22 (1,7), replied=1, free=0, RTT=0.004661 s
+  recommendation for node 21, report #1: node 5 (0,5)
+
+[t=2.526] ALERT #85: source=36, seq=3, coord=(2,6), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005936 s
+  cumulative neighbour traffic: msgs sent=17 recv=17, bytes sent=672 recv=1232
+  top    neighbour: node 21 (1,6), replied=1, free=1, RTT=0.004448 s
+  bottom neighbour: node 51 (3,6), replied=1, free=0, RTT=0.005927 s
+  left   neighbour: node 35 (2,5), replied=1, free=1, RTT=0.004459 s
+  right  neighbour: node 37 (2,7), replied=1, free=1, RTT=0.002240 s
+  recommendation for node 36, report #3: NO nearby nodes available
+
+[t=2.537] ALERT #86: source=61, seq=2, coord=(4,1), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004931 s
+  cumulative neighbour traffic: msgs sent=13 recv=13, bytes sent=608 recv=848
+  top    neighbour: node 46 (3,1), replied=1, free=1, RTT=0.001104 s
+  bottom neighbour: node 76 (5,1), replied=1, free=0, RTT=0.004547 s
+  left   neighbour: node 60 (4,0), replied=1, free=0, RTT=0.003339 s
+  right  neighbour: node 62 (4,2), replied=1, free=1, RTT=0.003347 s
+  recommendation for node 61, report #2: NO nearby nodes available
+
+[t=2.574] ALERT #87: source=108, seq=1, coord=(7,3), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004149 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=256 recv=416
+  top    neighbour: node 93 (6,3), replied=1, free=1, RTT=0.001324 s
+  bottom neighbour: node 123 (8,3), replied=1, free=0, RTT=0.003026 s
+  left   neighbour: node 107 (7,2), replied=1, free=1, RTT=0.004141 s
+  right  neighbour: node 109 (7,4), replied=1, free=1, RTT=0.001876 s
+  recommendation for node 108, report #1: node 92 (6,2), node 106 (7,1), node 110 (7,5), node 124 (8,4), node 138 (9,3)
+
+[t=2.596] ALERT #88: source=217, seq=2, coord=(14,7), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005453 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=384 recv=624
+  top    neighbour: node 202 (13,7), replied=1, free=1, RTT=0.002219 s
+  left   neighbour: node 216 (14,6), replied=1, free=1, RTT=0.004858 s
+  right  neighbour: node 218 (14,8), replied=1, free=1, RTT=0.002542 s
+  recommendation for node 217, report #2: node 187 (12,7), node 201 (13,6), node 215 (14,5)
+
+[t=2.597] ALERT #89: source=38, seq=2, coord=(2,8), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004824 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=800 recv=880
+  top    neighbour: node 23 (1,8), replied=1, free=1, RTT=0.004450 s
+  bottom neighbour: node 53 (3,8), replied=1, free=1, RTT=0.004461 s
+  left   neighbour: node 37 (2,7), replied=1, free=1, RTT=0.003320 s
+  right  neighbour: node 39 (2,9), replied=1, free=1, RTT=0.004463 s
+  recommendation for node 38, report #2: NO nearby nodes available
+
+[t=2.598] ALERT #90: source=89, seq=1, coord=(5,14), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004426 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=336 recv=336
+  top    neighbour: node 74 (4,14), replied=1, free=1, RTT=0.002193 s
+  bottom neighbour: node 104 (6,14), replied=1, free=1, RTT=0.004414 s
+  left   neighbour: node 88 (5,13), replied=1, free=1, RTT=0.002200 s
+  recommendation for node 89, report #1: NO nearby nodes available
+
+[t=2.652] ALERT #91: source=59, seq=1, coord=(3,14), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.006292 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=624 recv=384
+  top    neighbour: node 44 (2,14), replied=1, free=1, RTT=0.003386 s
+  bottom neighbour: node 74 (4,14), replied=1, free=1, RTT=0.003398 s
+  left   neighbour: node 58 (3,13), replied=1, free=1, RTT=0.005632 s
+  recommendation for node 59, report #1: node 43 (2,13), node 57 (3,12)
+
+[t=2.653] ALERT #92: source=109, seq=1, coord=(7,4), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004643 s
+  cumulative neighbour traffic: msgs sent=8 recv=8, bytes sent=448 recv=448
+  top    neighbour: node 94 (6,4), replied=1, free=0, RTT=0.002432 s
+  bottom neighbour: node 124 (8,4), replied=1, free=1, RTT=0.001287 s
+  left   neighbour: node 108 (7,3), replied=1, free=1, RTT=0.004634 s
+  right  neighbour: node 110 (7,5), replied=1, free=1, RTT=0.002443 s
+  recommendation for node 109, report #1: node 125 (8,5), node 139 (9,4)
+
+[t=2.681] ALERT #93: source=216, seq=1, coord=(14,6), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005999 s
+  cumulative neighbour traffic: msgs sent=6 recv=6, bytes sent=336 recv=336
+  top    neighbour: node 201 (13,6), replied=1, free=1, RTT=0.005963 s
+  left   neighbour: node 215 (14,5), replied=1, free=1, RTT=0.001128 s
+  right  neighbour: node 217 (14,7), replied=1, free=1, RTT=0.001548 s
+  recommendation for node 216, report #1: node 186 (12,6), node 200 (13,5), node 214 (14,4)
+
+[t=2.733] ALERT #94: source=134, seq=2, coord=(8,14), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.002764 s
+  cumulative neighbour traffic: msgs sent=11 recv=11, bytes sent=576 recv=656
+  top    neighbour: node 119 (7,14), replied=1, free=1, RTT=0.001097 s
+  bottom neighbour: node 149 (9,14), replied=1, free=1, RTT=0.002269 s
+  left   neighbour: node 133 (8,13), replied=1, free=1, RTT=0.002278 s
+  recommendation for node 134, report #2: node 132 (8,12)
+
+[t=2.755] ALERT #95: source=129, seq=3, coord=(8,9), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005624 s
+  cumulative neighbour traffic: msgs sent=19 recv=19, bytes sent=864 recv=1264
+  top    neighbour: node 114 (7,9), replied=1, free=1, RTT=0.004376 s
+  bottom neighbour: node 144 (9,9), replied=1, free=0, RTT=0.005316 s
+  left   neighbour: node 128 (8,8), replied=1, free=1, RTT=0.001098 s
+  right  neighbour: node 130 (8,10), replied=1, free=0, RTT=0.005616 s
+  recommendation for node 129, report #3: node 127 (8,7), node 143 (9,8), node 159 (10,9)
+
+[t=2.772] ALERT #96: source=174, seq=2, coord=(11,9), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005760 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=224 recv=784
+  top    neighbour: node 159 (10,9), replied=1, free=1, RTT=0.005003 s
+  bottom neighbour: node 189 (12,9), replied=1, free=1, RTT=0.003463 s
+  left   neighbour: node 173 (11,8), replied=1, free=1, RTT=0.001199 s
+  right  neighbour: node 175 (11,10), replied=1, free=0, RTT=0.005011 s
+  recommendation for node 174, report #2: node 158 (10,8), node 172 (11,7), node 176 (11,11), node 190 (12,10)
+
+[t=2.784] ALERT #97: source=198, seq=2, coord=(13,3), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004773 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=800 recv=880
+  top    neighbour: node 183 (12,3), replied=1, free=0, RTT=0.002235 s
+  bottom neighbour: node 213 (14,3), replied=1, free=1, RTT=0.004456 s
+  left   neighbour: node 197 (13,2), replied=1, free=1, RTT=0.003343 s
+  right  neighbour: node 199 (13,4), replied=1, free=1, RTT=0.004767 s
+  recommendation for node 198, report #2: node 200 (13,5), node 214 (14,4)
+
+[t=2.801] ALERT #98: source=176, seq=1, coord=(11,11), discovered=2026-10-17 19:15:37, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004900 s
+  cumulative neighbour traffic: msgs sent=7 recv=7, bytes sent=352 recv=432
+  top    neighbour: node 161 (10,11), replied=1, free=0, RTT=0.003781 s
+  bottom neighbour: node 191 (12,11), replied=1, free=1, RTT=0.001207 s
+  left   neighbour: node 175 (11,10), replied=1, free=0, RTT=0.004893 s
+  right  neighbour: node 177 (11,12), replied=1, free=1, RTT=0.003789 s
+  recommendation for node 176, report #1: node 190 (12,10), node 192 (12,12)
+
+[t=2.853] ALERT #99: source=177, seq=1, coord=(11,12), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005140 s
+  cumulative neighbour traffic: msgs sent=10 recv=10, bytes sent=640 recv=480
+  top    neighbour: node 162 (10,12), replied=1, free=1, RTT=0.002751 s
+  bottom neighbour: node 192 (12,12), replied=1, free=0, RTT=0.001503 s
+  left   neighbour: node 176 (11,11), replied=1, free=0, RTT=0.003862 s
+  right  neighbour: node 178 (11,13), replied=1, free=1, RTT=0.004690 s
+  recommendation for node 177, report #1: node 193 (12,13), node 207 (13,12)
+
+[t=2.854] ALERT #100: source=175, seq=1, coord=(11,10), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005859 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=544 recv=464
+  top    neighbour: node 160 (10,10), replied=1, free=1, RTT=0.003454 s
+  bottom neighbour: node 190 (12,10), replied=1, free=1, RTT=0.004595 s
+  left   neighbour: node 174 (11,9), replied=1, free=1, RTT=0.001253 s
+  right  neighbour: node 176 (11,11), replied=1, free=0, RTT=0.001262 s
+  recommendation for node 175, report #1: NO nearby nodes available
+
+[t=2.875] ALERT #101: source=191, seq=2, coord=(12,11), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005998 s
+  cumulative neighbour traffic: msgs sent=13 recv=13, bytes sent=608 recv=848
+  top    neighbour: node 176 (11,11), replied=1, free=0, RTT=0.001173 s
+  bottom neighbour: node 206 (13,11), replied=1, free=0, RTT=0.005680 s
+  left   neighbour: node 190 (12,10), replied=1, free=1, RTT=0.004592 s
+  right  neighbour: node 192 (12,12), replied=1, free=0, RTT=0.003448 s
+  recommendation for node 191, report #2: node 193 (12,13), node 207 (13,12)
+
+[t=2.876] ALERT #102: source=107, seq=2, coord=(7,2), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003948 s
+  cumulative neighbour traffic: msgs sent=11 recv=11, bytes sent=416 recv=816
+  top    neighbour: node 92 (6,2), replied=1, free=0, RTT=0.003923 s
+  bottom neighbour: node 122 (8,2), replied=1, free=0, RTT=0.001139 s
+  left   neighbour: node 106 (7,1), replied=1, free=0, RTT=0.002256 s
+  right  neighbour: node 108 (7,3), replied=1, free=0, RTT=0.002836 s
+  recommendation for node 107, report #2: NO nearby nodes available
+
+[t=2.898] ALERT #103: source=199, seq=2, coord=(13,4), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005521 s
+  cumulative neighbour traffic: msgs sent=14 recv=14, bytes sent=704 recv=864
+  top    neighbour: node 184 (12,4), replied=1, free=1, RTT=0.002174 s
+  bottom neighbour: node 214 (14,4), replied=1, free=1, RTT=0.005513 s
+  left   neighbour: node 198 (13,3), replied=1, free=0, RTT=0.003267 s
+  right  neighbour: node 200 (13,5), replied=1, free=0, RTT=0.003276 s
+  recommendation for node 199, report #2: NO nearby nodes available
+
+[t=2.901] ALERT #104: source=114, seq=2, coord=(7,9), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004414 s
+  cumulative neighbour traffic: msgs sent=18 recv=18, bytes sent=1088 recv=928
+  top    neighbour: node 99 (6,9), replied=1, free=1, RTT=0.001182 s
+  bottom neighbour: node 129 (8,9), replied=1, free=1, RTT=0.002682 s
+  left   neighbour: node 113 (7,8), replied=1, free=1, RTT=0.004406 s
+  right  neighbour: node 115 (7,10), replied=1, free=1, RTT=0.002693 s
+  recommendation for node 114, report #2: NO nearby nodes available
+
+[t=2.913] ALERT #105: source=178, seq=2, coord=(11,13), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004748 s
+  cumulative neighbour traffic: msgs sent=13 recv=13, bytes sent=608 recv=848
+  top    neighbour: node 163 (10,13), replied=1, free=0, RTT=0.002197 s
+  bottom neighbour: node 193 (12,13), replied=1, free=1, RTT=0.003297 s
+  left   neighbour: node 177 (11,12), replied=1, free=1, RTT=0.004359 s
+  right  neighbour: node 179 (11,14), replied=1, free=1, RTT=0.003307 s
+  recommendation for node 178, report #2: node 208 (13,13)
+
+[t=2.914] ALERT #106: source=50, seq=2, coord=(3,5), discovered=2026-10-17 19:15:37, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006009 s
+  cumulative neighbour traffic: msgs sent=16 recv=16, bytes sent=896 recv=896
+  top    neighbour: node 35 (2,5), replied=1, free=1, RTT=0.004522 s
+  bottom neighbour: node 65 (4,5), replied=1, free=0, RTT=0.003380 s
+  left   neighbour: node 49 (3,4), replied=1, free=1, RTT=0.005602 s
+  right  neighbour: node 51 (3,6), replied=1, free=1, RTT=0.003392 s
+  recommendation for node 50, report #2: NO nearby nodes available
+
+[t=3.135] ALERT #107: source=223, seq=2, coord=(14,13), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005598 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=384 recv=624
+  top    neighbour: node 208 (13,13), replied=1, free=0, RTT=0.004965 s
+  left   neighbour: node 222 (14,12), replied=1, free=1, RTT=0.003303 s
+  right  neighbour: node 224 (14,14), replied=1, free=0, RTT=0.004980 s
+  recommendation for node 223, report #2: node 207 (13,12), node 209 (13,14)
+
+[t=3.162] ALERT #108: source=16, seq=2, coord=(1,1), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004977 s
+  cumulative neighbour traffic: msgs sent=14 recv=14, bytes sent=704 recv=864
+  top    neighbour: node 1 (0,1), replied=1, free=0, RTT=0.001148 s
+  bottom neighbour: node 31 (2,1), replied=1, free=1, RTT=0.001159 s
+  left   neighbour: node 15 (1,0), replied=1, free=0, RTT=0.001531 s
+  right  neighbour: node 17 (1,2), replied=1, free=0, RTT=0.004963 s
+  recommendation for node 16, report #2: node 30 (2,0)
+
+[t=3.184] ALERT #109: source=130, seq=3, coord=(8,10), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.002148 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=960 recv=1280
+  top    neighbour: node 115 (7,10), replied=1, free=0, RTT=0.001108 s
+  bottom neighbour: node 145 (9,10), replied=1, free=1, RTT=0.001114 s
+  left   neighbour: node 129 (8,9), replied=1, free=1, RTT=0.001727 s
+  right  neighbour: node 131 (8,11), replied=1, free=0, RTT=0.001730 s
+  recommendation for node 130, report #3: node 132 (8,12)
+
+[t=3.201] ALERT #110: source=84, seq=2, coord=(5,9), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005636 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=800 recv=880
+  top    neighbour: node 69 (4,9), replied=1, free=1, RTT=0.005624 s
+  bottom neighbour: node 99 (6,9), replied=1, free=0, RTT=0.001159 s
+  left   neighbour: node 83 (5,8), replied=1, free=0, RTT=0.002279 s
+  right  neighbour: node 85 (5,10), replied=1, free=0, RTT=0.005633 s
+  recommendation for node 84, report #2: NO nearby nodes available
+
+[t=3.253] ALERT #111: source=82, seq=2, coord=(5,7), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004820 s
+  cumulative neighbour traffic: msgs sent=16 recv=16, bytes sent=896 recv=896
+  top    neighbour: node 67 (4,7), replied=1, free=1, RTT=0.004535 s
+  bottom neighbour: node 97 (6,7), replied=1, free=1, RTT=0.002319 s
+  left   neighbour: node 81 (5,6), replied=1, free=0, RTT=0.002326 s
+  right  neighbour: node 83 (5,8), replied=1, free=0, RTT=0.003431 s
+  recommendation for node 82, report #2: NO nearby nodes available
+
+[t=3.254] ALERT #112: source=62, seq=3, coord=(4,2), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006142 s
+  cumulative neighbour traffic: msgs sent=21 recv=21, bytes sent=1056 recv=1296
+  top    neighbour: node 47 (3,2), replied=1, free=1, RTT=0.004632 s
+  bottom neighbour: node 77 (5,2), replied=1, free=1, RTT=0.004643 s
+  left   neighbour: node 61 (4,1), replied=1, free=1, RTT=0.004970 s
+  right  neighbour: node 63 (4,3), replied=1, free=1, RTT=0.006131 s
+  recommendation for node 62, report #3: NO nearby nodes available
+
+[t=3.331] ALERT #113: source=153, seq=2, coord=(10,3), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004851 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=800 recv=880
+  top    neighbour: node 138 (9,3), replied=1, free=1, RTT=0.003763 s
+  bottom neighbour: node 168 (11,3), replied=1, free=1, RTT=0.004842 s
+  left   neighbour: node 152 (10,2), replied=1, free=1, RTT=0.002252 s
+  right  neighbour: node 154 (10,4), replied=1, free=1, RTT=0.003775 s
+  recommendation for node 153, report #2: node 139 (9,4), node 155 (10,5)
+
+[t=3.434] ALERT #114: source=105, seq=2, coord=(7,0), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005330 s
+  cumulative neighbour traffic: msgs sent=11 recv=11, bytes sent=576 recv=656
+  top    neighbour: node 90 (6,0), replied=1, free=0, RTT=0.001100 s
+  bottom neighbour: node 120 (8,0), replied=1, free=0, RTT=0.004223 s
+  right  neighbour: node 106 (7,1), replied=1, free=0, RTT=0.005320 s
+  recommendation for node 105, report #2: node 135 (9,0)
+
+[t=3.436] ALERT #115: source=221, seq=3, coord=(14,11), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004840 s
+  cumulative neighbour traffic: msgs sent=14 recv=14, bytes sent=624 recv=944
+  top    neighbour: node 206 (13,11), replied=1, free=0, RTT=0.004461 s
+  left   neighbour: node 220 (14,10), replied=1, free=1, RTT=0.002245 s
+  right  neighbour: node 222 (14,12), replied=1, free=1, RTT=0.002257 s
+  recommendation for node 221, report #3: node 207 (13,12)
+
+[t=3.488] ALERT #116: source=4, seq=2, coord=(0,4), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.003742 s
+  cumulative neighbour traffic: msgs sent=12 recv=12, bytes sent=672 recv=672
+  bottom neighbour: node 19 (1,4), replied=1, free=1, RTT=0.002190 s
+  left   neighbour: node 3 (0,3), replied=1, free=1, RTT=0.003731 s
+  right  neighbour: node 5 (0,5), replied=1, free=1, RTT=0.002609 s
+  recommendation for node 4, report #2: NO nearby nodes available
+
+[t=3.505] ALERT #117: source=200, seq=3, coord=(13,5), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005029 s
+  cumulative neighbour traffic: msgs sent=18 recv=18, bytes sent=768 recv=1248
+  top    neighbour: node 185 (12,5), replied=1, free=1, RTT=0.002331 s
+  bottom neighbour: node 215 (14,5), replied=1, free=0, RTT=0.004573 s
+  left   neighbour: node 199 (13,4), replied=1, free=0, RTT=0.003478 s
+  right  neighbour: node 201 (13,6), replied=1, free=0, RTT=0.002348 s
+  recommendation for node 200, report #3: node 186 (12,6)
+
+[t=3.537] ALERT #118: source=61, seq=3, coord=(4,1), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005879 s
+  cumulative neighbour traffic: msgs sent=21 recv=21, bytes sent=1056 recv=1296
+  top    neighbour: node 46 (3,1), replied=1, free=1, RTT=0.004382 s
+  bottom neighbour: node 76 (5,1), replied=1, free=0, RTT=0.005870 s
+  left   neighbour: node 60 (4,0), replied=1, free=0, RTT=0.001109 s
+  right  neighbour: node 62 (4,2), replied=1, free=1, RTT=0.001117 s
+  recommendation for node 61, report #3: NO nearby nodes available
+
+[t=3.626] ALERT #119: source=57, seq=2, coord=(3,12), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004984 s
+  cumulative neighbour traffic: msgs sent=16 recv=16, bytes sent=896 recv=896
+  top    neighbour: node 42 (2,12), replied=1, free=0, RTT=0.004582 s
+  bottom neighbour: node 72 (4,12), replied=1, free=1, RTT=0.002353 s
+  left   neighbour: node 56 (3,11), replied=1, free=1, RTT=0.002367 s
+  right  neighbour: node 58 (3,13), replied=1, free=0, RTT=0.003490 s
+  recommendation for node 57, report #2: node 41 (2,11), node 43 (2,13), node 55 (3,10)
+
+[t=3.647] ALERT #120: source=59, seq=2, coord=(3,14), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004423 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=960 recv=720
+  top    neighbour: node 44 (2,14), replied=1, free=1, RTT=0.004415 s
+  bottom neighbour: node 74 (4,14), replied=1, free=0, RTT=0.002216 s
+  left   neighbour: node 58 (3,13), replied=1, free=0, RTT=0.003326 s
+  recommendation for node 59, report #2: node 43 (2,13)
+
+[t=3.710] ALERT #121: source=41, seq=1, coord=(2,11), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005193 s
+  cumulative neighbour traffic: msgs sent=13 recv=13, bytes sent=928 recv=528
+  top    neighbour: node 26 (1,11), replied=1, free=1, RTT=0.004577 s
+  bottom neighbour: node 56 (3,11), replied=1, free=1, RTT=0.002381 s
+  left   neighbour: node 40 (2,10), replied=1, free=0, RTT=0.001276 s
+  right  neighbour: node 42 (2,12), replied=1, free=0, RTT=0.003468 s
+  recommendation for node 41, report #1: node 43 (2,13), node 55 (3,10)
+
+[t=3.783] ALERT #122: source=198, seq=3, coord=(13,3), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006130 s
+  cumulative neighbour traffic: msgs sent=23 recv=23, bytes sent=1248 recv=1328
+  top    neighbour: node 183 (12,3), replied=1, free=0, RTT=0.004466 s
+  bottom neighbour: node 213 (14,3), replied=1, free=1, RTT=0.003366 s
+  left   neighbour: node 197 (13,2), replied=1, free=0, RTT=0.005003 s
+  right  neighbour: node 199 (13,4), replied=1, free=0, RTT=0.006122 s
+  recommendation for node 198, report #3: NO nearby nodes available
+
+[t=3.815] ALERT #123: source=75, seq=3, coord=(5,0), discovered=2026-10-17 19:15:38, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.002255 s
+  cumulative neighbour traffic: msgs sent=16 recv=16, bytes sent=816 recv=976
+  top    neighbour: node 60 (4,0), replied=1, free=1, RTT=0.001104 s
+  bottom neighbour: node 90 (6,0), replied=1, free=0, RTT=0.002246 s
+  right  neighbour: node 76 (5,1), replied=1, free=0, RTT=0.001115 s
+  recommendation for node 75, report #3: NO nearby nodes available
+
+[t=3.816] ALERT #124: source=115, seq=3, coord=(7,10), discovered=2026-10-17 19:15:38, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006541 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=960 recv=1280
+  top    neighbour: node 100 (6,10), replied=1, free=0, RTT=0.005452 s
+  bottom neighbour: node 130 (8,10), replied=1, free=1, RTT=0.001124 s
+  left   neighbour: node 114 (7,9), replied=1, free=1, RTT=0.004313 s
+  right  neighbour: node 116 (7,11), replied=1, free=1, RTT=0.006535 s
+  recommendation for node 115, report #3: NO nearby nodes available
+
+[t=4.094] ALERT #125: source=95, seq=3, coord=(6,5), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003876 s
+  cumulative neighbour traffic: msgs sent=22 recv=22, bytes sent=1152 recv=1312
+  top    neighbour: node 80 (5,5), replied=1, free=0, RTT=0.003864 s
+  bottom neighbour: node 110 (7,5), replied=1, free=1, RTT=0.002244 s
+  left   neighbour: node 94 (6,4), replied=1, free=0, RTT=0.002738 s
+  right  neighbour: node 96 (6,6), replied=1, free=1, RTT=0.003873 s
+  recommendation for node 95, report #3: node 125 (8,5)
+
+[t=4.106] ALERT #126: source=207, seq=2, coord=(13,12), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004741 s
+  cumulative neighbour traffic: msgs sent=18 recv=18, bytes sent=1088 recv=928
+  top    neighbour: node 192 (12,12), replied=1, free=1, RTT=0.001113 s
+  bottom neighbour: node 222 (14,12), replied=1, free=0, RTT=0.001145 s
+  left   neighbour: node 206 (13,11), replied=1, free=0, RTT=0.002274 s
+  right  neighbour: node 208 (13,13), replied=1, free=0, RTT=0.003501 s
+  recommendation for node 207, report #2: node 209 (13,14)
+
+[t=4.133] ALERT #127: source=223, seq=3, coord=(14,13), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.006528 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=720 recv=960
+  top    neighbour: node 208 (13,13), replied=1, free=0, RTT=0.004508 s
+  left   neighbour: node 222 (14,12), replied=1, free=0, RTT=0.002260 s
+  right  neighbour: node 224 (14,14), replied=1, free=1, RTT=0.005806 s
+  recommendation for node 223, report #3: node 209 (13,14)
+
+[t=4.175] ALERT #128: source=100, seq=2, coord=(6,10), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005412 s
+  cumulative neighbour traffic: msgs sent=19 recv=19, bytes sent=1184 recv=944
+  top    neighbour: node 85 (5,10), replied=1, free=0, RTT=0.004486 s
+  bottom neighbour: node 115 (7,10), replied=1, free=1, RTT=0.002220 s
+  left   neighbour: node 99 (6,9), replied=1, free=0, RTT=0.005151 s
+  right  neighbour: node 101 (6,11), replied=1, free=1, RTT=0.003333 s
+  recommendation for node 100, report #2: NO nearby nodes available
+
+[t=4.176] ALERT #129: source=193, seq=2, coord=(12,13), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004732 s
+  cumulative neighbour traffic: msgs sent=18 recv=18, bytes sent=1088 recv=928
+  top    neighbour: node 178 (11,13), replied=1, free=1, RTT=0.003303 s
+  bottom neighbour: node 208 (13,13), replied=1, free=0, RTT=0.003311 s
+  left   neighbour: node 192 (12,12), replied=1, free=1, RTT=0.001144 s
+  right  neighbour: node 194 (12,14), replied=1, free=1, RTT=0.003314 s
+  recommendation for node 193, report #2: node 209 (13,14)
+
+[t=4.218] ALERT #130: source=3, seq=4, coord=(0,3), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005344 s
+  cumulative neighbour traffic: msgs sent=18 recv=18, bytes sent=768 recv=1248
+  bottom neighbour: node 18 (1,3), replied=1, free=0, RTT=0.004714 s
+  left   neighbour: node 2 (0,2), replied=1, free=1, RTT=0.002196 s
+  right  neighbour: node 4 (0,4), replied=1, free=1, RTT=0.001103 s
+  recommendation for node 3, report #4: NO nearby nodes available
+
+[t=4.219] ALERT #131: source=10, seq=3, coord=(0,10), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005767 s
+  cumulative neighbour traffic: msgs sent=14 recv=14, bytes sent=624 recv=944
+  bottom neighbour: node 25 (1,10), replied=1, free=1, RTT=0.003273 s
+  left   neighbour: node 9 (0,9), replied=1, free=1, RTT=0.001089 s
+  right  neighbour: node 11 (0,11), replied=1, free=0, RTT=0.005471 s
+  recommendation for node 10, report #3: NO nearby nodes available
+
+[t=4.241] ALERT #132: source=30, seq=3, coord=(2,0), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004614 s
+  cumulative neighbour traffic: msgs sent=17 recv=17, bytes sent=912 recv=992
+  top    neighbour: node 15 (1,0), replied=1, free=1, RTT=0.003496 s
+  bottom neighbour: node 45 (3,0), replied=1, free=1, RTT=0.004605 s
+  right  neighbour: node 31 (2,1), replied=1, free=1, RTT=0.001107 s
+  recommendation for node 30, report #3: NO nearby nodes available
+
+[t=4.257] ALERT #133: source=13, seq=3, coord=(0,13), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005253 s
+  cumulative neighbour traffic: msgs sent=19 recv=19, bytes sent=1104 recv=1024
+  bottom neighbour: node 28 (1,13), replied=1, free=0, RTT=0.005240 s
+  left   neighbour: node 12 (0,12), replied=1, free=1, RTT=0.001096 s
+  right  neighbour: node 14 (0,14), replied=1, free=1, RTT=0.005250 s
+  recommendation for node 13, report #3: node 43 (2,13)
+
+[t=4.289] ALERT #134: source=112, seq=2, coord=(7,7), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003723 s
+  cumulative neighbour traffic: msgs sent=17 recv=17, bytes sent=992 recv=912
+  top    neighbour: node 97 (6,7), replied=1, free=1, RTT=0.003716 s
+  bottom neighbour: node 127 (8,7), replied=1, free=1, RTT=0.002233 s
+  left   neighbour: node 111 (7,6), replied=1, free=1, RTT=0.002628 s
+  right  neighbour: node 113 (7,8), replied=1, free=0, RTT=0.002635 s
+  recommendation for node 112, report #2: node 126 (8,6), node 142 (9,7)
+
+[t=4.362] ALERT #135: source=29, seq=3, coord=(1,14), discovered=2026-10-17 19:15:39, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005857 s
+  cumulative neighbour traffic: msgs sent=19 recv=19, bytes sent=1104 recv=1024
+  top    neighbour: node 14 (0,14), replied=1, free=1, RTT=0.004756 s
+  bottom neighbour: node 44 (2,14), replied=1, free=1, RTT=0.002243 s
+  left   neighbour: node 28 (1,13), replied=1, free=0, RTT=0.004764 s
+  recommendation for node 29, report #3: node 43 (2,13)
+
+[t=4.384] ALERT #136: source=121, seq=3, coord=(8,1), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006966 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=960 recv=1280
+  top    neighbour: node 106 (7,1), replied=1, free=0, RTT=0.006194 s
+  bottom neighbour: node 136 (9,1), replied=1, free=1, RTT=0.004345 s
+  left   neighbour: node 120 (8,0), replied=1, free=1, RTT=0.001090 s
+  right  neighbour: node 122 (8,2), replied=1, free=1, RTT=0.005096 s
+  recommendation for node 121, report #3: node 135 (9,0)
+
+[t=4.385] ALERT #137: source=8, seq=3, coord=(0,8), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005490 s
+  cumulative neighbour traffic: msgs sent=16 recv=16, bytes sent=816 recv=976
+  bottom neighbour: node 23 (1,8), replied=1, free=1, RTT=0.002189 s
+  left   neighbour: node 7 (0,7), replied=1, free=0, RTT=0.002199 s
+  right  neighbour: node 9 (0,9), replied=1, free=0, RTT=0.005467 s
+  recommendation for node 8, report #3: NO nearby nodes available
+
+[t=4.396] ALERT #138: source=126, seq=3, coord=(8,6), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005259 s
+  cumulative neighbour traffic: msgs sent=16 recv=16, bytes sent=576 recv=1216
+  top    neighbour: node 111 (7,6), replied=1, free=1, RTT=0.004413 s
+  bottom neighbour: node 141 (9,6), replied=1, free=1, RTT=0.002233 s
+  left   neighbour: node 125 (8,5), replied=1, free=1, RTT=0.003299 s
+  right  neighbour: node 127 (8,7), replied=1, free=1, RTT=0.004424 s
+  recommendation for node 126, report #3: node 140 (9,5), node 142 (9,7), node 156 (10,6)
+
+[t=4.408] ALERT #139: source=164, seq=3, coord=(10,14), discovered=2026-10-17 19:15:39, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.003957 s
+  cumulative neighbour traffic: msgs sent=18 recv=18, bytes sent=1008 recv=1008
+  top    neighbour: node 149 (9,14), replied=1, free=1, RTT=0.002709 s
+  bottom neighbour: node 179 (11,14), replied=1, free=1, RTT=0.001106 s
+  left   neighbour: node 163 (10,13), replied=1, free=1, RTT=0.003954 s
+  recommendation for node 164, report #3: NO nearby nodes available
+
+[t=4.413] ALERT #140: source=72, seq=3, coord=(4,12), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004753 s
+  cumulative neighbour traffic: msgs sent=17 recv=17, bytes sent=672 recv=1232
+  top    neighbour: node 57 (3,12), replied=1, free=0, RTT=0.002169 s
+  bottom neighbour: node 87 (5,12), replied=1, free=1, RTT=0.002177 s
+  left   neighbour: node 71 (4,11), replied=1, free=1, RTT=0.004745 s
+  right  neighbour: node 73 (4,13), replied=1, free=1, RTT=0.003281 s
+  recommendation for node 72, report #3: NO nearby nodes available
+
+[t=4.471] ALERT #141: source=98, seq=3, coord=(6,8), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004976 s
+  cumulative neighbour traffic: msgs sent=25 recv=25, bytes sent=1440 recv=1360
+  top    neighbour: node 83 (5,8), replied=1, free=1, RTT=0.004579 s
+  bottom neighbour: node 113 (7,8), replied=1, free=0, RTT=0.001150 s
+  left   neighbour: node 97 (6,7), replied=1, free=1, RTT=0.004587 s
+  right  neighbour: node 99 (6,9), replied=1, free=0, RTT=0.001161 s
+  recommendation for node 98, report #3: NO nearby nodes available
+
+[t=4.487] ALERT #142: source=211, seq=2, coord=(14,1), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005433 s
+  cumulative neighbour traffic: msgs sent=14 recv=14, bytes sent=864 recv=704
+  top    neighbour: node 196 (13,1), replied=1, free=1, RTT=0.005425 s
+  left   neighbour: node 210 (14,0), replied=1, free=0, RTT=0.002201 s
+  right  neighbour: node 212 (14,2), replied=1, free=1, RTT=0.002213 s
+  recommendation for node 211, report #2: NO nearby nodes available
+
+[t=4.524] ALERT #143: source=12, seq=5, coord=(0,12), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005258 s
+  cumulative neighbour traffic: msgs sent=23 recv=23, bytes sent=1008 recv=1568
+  bottom neighbour: node 27 (1,12), replied=1, free=1, RTT=0.002253 s
+  left   neighbour: node 11 (0,11), replied=1, free=1, RTT=0.004115 s
+  right  neighbour: node 13 (0,13), replied=1, free=1, RTT=0.005251 s
+  recommendation for node 12, report #5: NO nearby nodes available
+
+[t=4.607] ALERT #144: source=38, seq=4, coord=(2,8), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005355 s
+  cumulative neighbour traffic: msgs sent=29 recv=29, bytes sent=1504 recv=1744
+  top    neighbour: node 23 (1,8), replied=1, free=0, RTT=0.001095 s
+  bottom neighbour: node 53 (3,8), replied=1, free=1, RTT=0.004992 s
+  left   neighbour: node 37 (2,7), replied=1, free=1, RTT=0.003881 s
+  right  neighbour: node 39 (2,9), replied=1, free=1, RTT=0.002195 s
+  recommendation for node 38, report #4: NO nearby nodes available
+
+[t=4.670] ALERT #145: source=140, seq=2, coord=(9,5), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004525 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=800 recv=880
+  top    neighbour: node 125 (8,5), replied=1, free=1, RTT=0.001124 s
+  bottom neighbour: node 155 (10,5), replied=1, free=1, RTT=0.004513 s
+  left   neighbour: node 139 (9,4), replied=1, free=1, RTT=0.002262 s
+  right  neighbour: node 141 (9,6), replied=1, free=0, RTT=0.004523 s
+  recommendation for node 140, report #2: node 142 (9,7), node 156 (10,6)
+
+[t=4.693] ALERT #146: source=167, seq=3, coord=(11,2), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005300 s
+  cumulative neighbour traffic: msgs sent=21 recv=21, bytes sent=1056 recv=1296
+  top    neighbour: node 152 (10,2), replied=1, free=1, RTT=0.002284 s
+  bottom neighbour: node 182 (12,2), replied=1, free=1, RTT=0.004160 s
+  left   neighbour: node 166 (11,1), replied=1, free=1, RTT=0.004171 s
+  right  neighbour: node 168 (11,3), replied=1, free=0, RTT=0.005288 s
+  recommendation for node 167, report #3: NO nearby nodes available
+
+[t=4.778] ALERT #147: source=53, seq=4, coord=(3,8), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.028982 s
+  cumulative neighbour traffic: msgs sent=28 recv=28, bytes sent=1408 recv=1728
+  top    neighbour: node 38 (2,8), replied=1, free=1, RTT=0.001128 s
+  bottom neighbour: node 68 (4,8), replied=1, free=1, RTT=0.004484 s
+  left   neighbour: node 52 (3,7), replied=1, free=0, RTT=0.004496 s
+  right  neighbour: node 54 (3,9), replied=1, free=1, RTT=0.011364 s
+  recommendation for node 53, report #4: node 55 (3,10)
+
+[t=4.793] ALERT #148: source=119, seq=4, coord=(7,14), discovered=2026-10-17 19:15:39, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.009779 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=960 recv=1280
+  top    neighbour: node 104 (6,14), replied=1, free=1, RTT=0.001142 s
+  bottom neighbour: node 134 (8,14), replied=1, free=1, RTT=0.006360 s
+  left   neighbour: node 118 (7,13), replied=1, free=0, RTT=0.009765 s
+  recommendation for node 119, report #4: NO nearby nodes available
+
+[t=4.799] ALERT #149: source=194, seq=3, coord=(12,14), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.015520 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=720 recv=960
+  top    neighbour: node 179 (11,14), replied=1, free=1, RTT=0.015510 s
+  bottom neighbour: node 209 (13,14), replied=1, free=1, RTT=0.004472 s
+  left   neighbour: node 193 (12,13), replied=1, free=0, RTT=0.014385 s
+  recommendation for node 194, report #3: NO nearby nodes available
+
+[t=4.822] ALERT #150: source=104, seq=3, coord=(6,14), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005626 s
+  cumulative neighbour traffic: msgs sent=18 recv=18, bytes sent=1008 recv=1008
+  top    neighbour: node 89 (5,14), replied=1, free=0, RTT=0.003320 s
+  bottom neighbour: node 119 (7,14), replied=1, free=0, RTT=0.001124 s
+  left   neighbour: node 103 (6,13), replied=1, free=0, RTT=0.004433 s
+  recommendation for node 104, report #3: NO nearby nodes available
+
+[t=4.823] ALERT #151: source=168, seq=2, coord=(11,3), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004401 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=1280 recv=960
+  top    neighbour: node 153 (10,3), replied=1, free=1, RTT=0.004391 s
+  bottom neighbour: node 183 (12,3), replied=1, free=1, RTT=0.001146 s
+  left   neighbour: node 167 (11,2), replied=1, free=1, RTT=0.001560 s
+  right  neighbour: node 169 (11,4), replied=1, free=1, RTT=0.003350 s
+  recommendation for node 168, report #2: NO nearby nodes available
+
+[t=4.834] ALERT #152: source=24, seq=2, coord=(1,9), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004836 s
+  cumulative neighbour traffic: msgs sent=18 recv=18, bytes sent=1088 recv=928
+  top    neighbour: node 9 (0,9), replied=1, free=1, RTT=0.004571 s
+  bottom neighbour: node 39 (2,9), replied=1, free=1, RTT=0.003421 s
+  left   neighbour: node 23 (1,8), replied=1, free=0, RTT=0.002209 s
+  right  neighbour: node 25 (1,10), replied=1, free=0, RTT=0.001112 s
+  recommendation for node 24, report #2: NO nearby nodes available
+
+[t=4.877] ALERT #153: source=22, seq=4, coord=(1,7), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004479 s
+  cumulative neighbour traffic: msgs sent=26 recv=26, bytes sent=1216 recv=1696
+  top    neighbour: node 7 (0,7), replied=1, free=1, RTT=0.004466 s
+  bottom neighbour: node 37 (2,7), replied=1, free=1, RTT=0.001116 s
+  left   neighbour: node 21 (1,6), replied=1, free=1, RTT=0.002268 s
+  right  neighbour: node 23 (1,8), replied=1, free=0, RTT=0.004476 s
+  recommendation for node 22, report #4: NO nearby nodes available
+
+[t=4.961] ALERT #154: source=222, seq=4, coord=(14,12), discovered=2026-10-17 19:15:39, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.003118 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=960 recv=1280
+  top    neighbour: node 207 (13,12), replied=1, free=1, RTT=0.001119 s
+  left   neighbour: node 221 (14,11), replied=1, free=1, RTT=0.001988 s
+  right  neighbour: node 223 (14,13), replied=1, free=1, RTT=0.003082 s
+  recommendation for node 222, report #4: NO nearby nodes available
+
+[t=5.049] ALERT #155: source=40, seq=4, coord=(2,10), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005287 s
+  cumulative neighbour traffic: msgs sent=25 recv=25, bytes sent=1120 recv=1680
+  top    neighbour: node 25 (1,10), replied=1, free=0, RTT=0.001147 s
+  bottom neighbour: node 55 (3,10), replied=1, free=1, RTT=0.004523 s
+  left   neighbour: node 39 (2,9), replied=1, free=1, RTT=0.002291 s
+  right  neighbour: node 41 (2,11), replied=1, free=1, RTT=0.001159 s
+  recommendation for node 40, report #4: NO nearby nodes available
+
+[t=5.065] ALERT #156: source=103, seq=4, coord=(6,13), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004881 s
+  cumulative neighbour traffic: msgs sent=27 recv=27, bytes sent=1312 recv=1712
+  top    neighbour: node 88 (5,13), replied=1, free=1, RTT=0.003371 s
+  bottom neighbour: node 118 (7,13), replied=1, free=0, RTT=0.002280 s
+  left   neighbour: node 102 (6,12), replied=1, free=1, RTT=0.004872 s
+  right  neighbour: node 104 (6,14), replied=1, free=1, RTT=0.002291 s
+  recommendation for node 103, report #4: NO nearby nodes available
+
+[t=5.138] ALERT #157: source=223, seq=4, coord=(14,13), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005915 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=960 recv=1280
+  top    neighbour: node 208 (13,13), replied=1, free=1, RTT=0.004720 s
+  left   neighbour: node 222 (14,12), replied=1, free=1, RTT=0.005897 s
+  right  neighbour: node 224 (14,14), replied=1, free=1, RTT=0.005911 s
+  recommendation for node 223, report #4: NO nearby nodes available
+
+[t=5.182] ALERT #158: source=52, seq=4, coord=(3,7), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005983 s
+  cumulative neighbour traffic: msgs sent=32 recv=32, bytes sent=1792 recv=1792
+  top    neighbour: node 37 (2,7), replied=1, free=1, RTT=0.004565 s
+  bottom neighbour: node 67 (4,7), replied=1, free=1, RTT=0.004576 s
+  left   neighbour: node 51 (3,6), replied=1, free=1, RTT=0.003433 s
+  right  neighbour: node 53 (3,8), replied=1, free=0, RTT=0.001173 s
+  recommendation for node 52, report #4: NO nearby nodes available
+
+[t=5.194] ALERT #159: source=9, seq=3, coord=(0,9), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005585 s
+  cumulative neighbour traffic: msgs sent=17 recv=17, bytes sent=912 recv=992
+  bottom neighbour: node 24 (1,9), replied=1, free=0, RTT=0.004456 s
+  left   neighbour: node 8 (0,8), replied=1, free=1, RTT=0.005575 s
+  right  neighbour: node 10 (0,10), replied=1, free=1, RTT=0.004467 s
+  recommendation for node 9, report #3: NO nearby nodes available
+
+[t=5.227] ALERT #160: source=14, seq=4, coord=(0,14), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=2 recv=2, bytes sent=32 recv=192, exchange_time=0.002711 s
+  cumulative neighbour traffic: msgs sent=14 recv=14, bytes sent=704 recv=864
+  bottom neighbour: node 29 (1,14), replied=1, free=1, RTT=0.002699 s
+  left   neighbour: node 13 (0,13), replied=1, free=1, RTT=0.001070 s
+  recommendation for node 14, report #4: NO nearby nodes available
+
+[t=5.264] ALERT #161: source=224, seq=2, coord=(14,14), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=2 recv=2, bytes sent=32 recv=192, exchange_time=0.002273 s
+  cumulative neighbour traffic: msgs sent=9 recv=9, bytes sent=544 recv=464
+  top    neighbour: node 209 (13,14), replied=1, free=1, RTT=0.001150 s
+  left   neighbour: node 223 (14,13), replied=1, free=1, RTT=0.001894 s
+  recommendation for node 224, report #2: NO nearby nodes available
+
+[t=5.265] ALERT #162: source=39, seq=4, coord=(2,9), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006895 s
+  cumulative neighbour traffic: msgs sent=28 recv=28, bytes sent=1408 recv=1728
+  top    neighbour: node 24 (1,9), replied=1, free=0, RTT=0.005730 s
+  bottom neighbour: node 54 (3,9), replied=1, free=1, RTT=0.004609 s
+  left   neighbour: node 38 (2,8), replied=1, free=1, RTT=0.005753 s
+  right  neighbour: node 40 (2,10), replied=1, free=1, RTT=0.005757 s
+  recommendation for node 39, report #4: NO nearby nodes available
+
+[t=5.287] ALERT #163: source=142, seq=4, coord=(9,7), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004465 s
+  cumulative neighbour traffic: msgs sent=23 recv=23, bytes sent=928 recv=1648
+  top    neighbour: node 127 (8,7), replied=1, free=1, RTT=0.002199 s
+  bottom neighbour: node 157 (10,7), replied=1, free=1, RTT=0.003359 s
+  left   neighbour: node 141 (9,6), replied=1, free=1, RTT=0.004458 s
+  right  neighbour: node 143 (9,8), replied=1, free=0, RTT=0.003371 s
+  recommendation for node 142, report #4: node 156 (10,6), node 158 (10,8), node 172 (11,7)
+
+[t=5.288] ALERT #164: source=112, seq=3, coord=(7,7), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004434 s
+  cumulative neighbour traffic: msgs sent=23 recv=23, bytes sent=1248 recv=1328
+  top    neighbour: node 97 (6,7), replied=1, free=1, RTT=0.001135 s
+  bottom neighbour: node 127 (8,7), replied=1, free=1, RTT=0.003363 s
+  left   neighbour: node 111 (7,6), replied=1, free=1, RTT=0.004424 s
+  right  neighbour: node 113 (7,8), replied=1, free=1, RTT=0.002241 s
+  recommendation for node 112, report #3: NO nearby nodes available
+
+[t=5.301] ALERT #165: source=91, seq=3, coord=(6,1), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004769 s
+  cumulative neighbour traffic: msgs sent=24 recv=24, bytes sent=1344 recv=1344
+  top    neighbour: node 76 (5,1), replied=1, free=1, RTT=0.001144 s
+  bottom neighbour: node 106 (7,1), replied=1, free=1, RTT=0.002499 s
+  left   neighbour: node 90 (6,0), replied=1, free=0, RTT=0.002508 s
+  right  neighbour: node 92 (6,2), replied=1, free=1, RTT=0.004762 s
+  recommendation for node 91, report #3: NO nearby nodes available
+
+[t=5.314] ALERT #166: source=68, seq=4, coord=(4,8), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004277 s
+  cumulative neighbour traffic: msgs sent=30 recv=30, bytes sent=1600 recv=1760
+  top    neighbour: node 53 (3,8), replied=1, free=0, RTT=0.004267 s
+  bottom neighbour: node 83 (5,8), replied=1, free=1, RTT=0.003197 s
+  left   neighbour: node 67 (4,7), replied=1, free=1, RTT=0.003206 s
+  right  neighbour: node 69 (4,9), replied=1, free=1, RTT=0.001109 s
+  recommendation for node 68, report #4: NO nearby nodes available
+
+[t=5.316] ALERT #167: source=101, seq=3, coord=(6,11), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006597 s
+  cumulative neighbour traffic: msgs sent=25 recv=25, bytes sent=1440 recv=1360
+  top    neighbour: node 86 (5,11), replied=1, free=0, RTT=0.002251 s
+  bottom neighbour: node 116 (7,11), replied=1, free=1, RTT=0.002260 s
+  left   neighbour: node 100 (6,10), replied=1, free=0, RTT=0.005506 s
+  right  neighbour: node 102 (6,12), replied=1, free=1, RTT=0.005520 s
+  recommendation for node 101, report #3: NO nearby nodes available
+
+[t=5.348] ALERT #168: source=218, seq=3, coord=(14,8), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.003894 s
+  cumulative neighbour traffic: msgs sent=19 recv=19, bytes sent=1104 recv=1024
+  top    neighbour: node 203 (13,8), replied=1, free=1, RTT=0.002408 s
+  left   neighbour: node 217 (14,7), replied=1, free=1, RTT=0.001092 s
+  right  neighbour: node 219 (14,9), replied=1, free=0, RTT=0.003887 s
+  recommendation for node 218, report #3: NO nearby nodes available
+
+[t=5.365] ALERT #169: source=74, seq=4, coord=(4,14), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.003223 s
+  cumulative neighbour traffic: msgs sent=17 recv=17, bytes sent=672 recv=1232
+  top    neighbour: node 59 (3,14), replied=1, free=1, RTT=0.001094 s
+  bottom neighbour: node 89 (5,14), replied=1, free=1, RTT=0.002652 s
+  left   neighbour: node 73 (4,13), replied=1, free=1, RTT=0.002663 s
+  recommendation for node 74, report #4: NO nearby nodes available
+
+[t=5.386] ALERT #170: source=212, seq=4, coord=(14,2), discovered=2026-10-17 19:15:40, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005520 s
+  cumulative neighbour traffic: msgs sent=23 recv=23, bytes sent=1248 recv=1328
+  top    neighbour: node 197 (13,2), replied=1, free=1, RTT=0.003258 s
+  left   neighbour: node 211 (14,1), replied=1, free=1, RTT=0.005509 s
+  right  neighbour: node 213 (14,3), replied=1, free=1, RTT=0.002180 s
+  recommendation for node 212, report #4: NO nearby nodes available
+
+[t=5.438] ALERT #171: source=55, seq=3, coord=(3,10), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004748 s
+  cumulative neighbour traffic: msgs sent=23 recv=23, bytes sent=1248 recv=1328
+  top    neighbour: node 40 (2,10), replied=1, free=1, RTT=0.004414 s
+  bottom neighbour: node 70 (4,10), replied=1, free=1, RTT=0.003318 s
+  left   neighbour: node 54 (3,9), replied=1, free=1, RTT=0.002226 s
+  right  neighbour: node 56 (3,11), replied=1, free=1, RTT=0.001101 s
+  recommendation for node 55, report #3: NO nearby nodes available
+
+[t=5.465] ALERT #172: source=180, seq=4, coord=(12,0), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.006043 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=960 recv=1280
+  top    neighbour: node 165 (11,0), replied=1, free=1, RTT=0.001130 s
+  bottom neighbour: node 195 (13,0), replied=1, free=1, RTT=0.006033 s
+  right  neighbour: node 181 (12,1), replied=1, free=0, RTT=0.004433 s
+  recommendation for node 180, report #4: node 150 (10,0)
+
+[t=5.466] ALERT #173: source=70, seq=4, coord=(4,10), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004648 s
+  cumulative neighbour traffic: msgs sent=27 recv=27, bytes sent=1312 recv=1712
+  top    neighbour: node 55 (3,10), replied=1, free=1, RTT=0.003383 s
+  bottom neighbour: node 85 (5,10), replied=1, free=1, RTT=0.004633 s
+  left   neighbour: node 69 (4,9), replied=1, free=1, RTT=0.004645 s
+  right  neighbour: node 71 (4,11), replied=1, free=1, RTT=0.001118 s
+  recommendation for node 70, report #4: NO nearby nodes available
+
+[t=5.487] ALERT #174: source=211, seq=3, coord=(14,1), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004726 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=1200 recv=1040
+  top    neighbour: node 196 (13,1), replied=1, free=1, RTT=0.004719 s
+  left   neighbour: node 210 (14,0), replied=1, free=1, RTT=0.003624 s
+  right  neighbour: node 212 (14,2), replied=1, free=1, RTT=0.001438 s
+  recommendation for node 211, report #3: NO nearby nodes available
+
+[t=5.519] ALERT #175: source=215, seq=3, coord=(14,5), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004001 s
+  cumulative neighbour traffic: msgs sent=16 recv=16, bytes sent=816 recv=976
+  top    neighbour: node 200 (13,5), replied=1, free=1, RTT=0.002768 s
+  left   neighbour: node 214 (14,4), replied=1, free=1, RTT=0.003989 s
+  right  neighbour: node 216 (14,6), replied=1, free=1, RTT=0.001118 s
+  recommendation for node 215, report #3: NO nearby nodes available
+
+[t=5.551] ALERT #176: source=125, seq=2, coord=(8,5), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004912 s
+  cumulative neighbour traffic: msgs sent=19 recv=19, bytes sent=1184 recv=944
+  top    neighbour: node 110 (7,5), replied=1, free=1, RTT=0.002327 s
+  bottom neighbour: node 140 (9,5), replied=1, free=1, RTT=0.002336 s
+  left   neighbour: node 124 (8,4), replied=1, free=1, RTT=0.001144 s
+  right  neighbour: node 126 (8,6), replied=1, free=1, RTT=0.004903 s
+  recommendation for node 125, report #2: NO nearby nodes available
+
+[t=5.563] ALERT #177: source=124, seq=3, coord=(8,4), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005236 s
+  cumulative neighbour traffic: msgs sent=20 recv=20, bytes sent=960 recv=1280
+  top    neighbour: node 109 (7,4), replied=1, free=1, RTT=0.005219 s
+  bottom neighbour: node 139 (9,4), replied=1, free=1, RTT=0.001181 s
+  left   neighbour: node 123 (8,3), replied=1, free=0, RTT=0.002308 s
+  right  neighbour: node 125 (8,5), replied=1, free=1, RTT=0.005233 s
+  recommendation for node 124, report #3: NO nearby nodes available
+
+[t=5.565] ALERT #178: source=128, seq=5, coord=(8,8), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004579 s
+  cumulative neighbour traffic: msgs sent=33 recv=33, bytes sent=1568 recv=2128
+  top    neighbour: node 113 (7,8), replied=1, free=1, RTT=0.003467 s
+  bottom neighbour: node 143 (9,8), replied=1, free=1, RTT=0.004567 s
+  left   neighbour: node 127 (8,7), replied=1, free=1, RTT=0.004576 s
+  right  neighbour: node 129 (8,9), replied=1, free=1, RTT=0.004578 s
+  recommendation for node 128, report #5: node 158 (10,8)
+
+[t=5.576] ALERT #179: source=108, seq=3, coord=(7,3), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005690 s
+  cumulative neighbour traffic: msgs sent=22 recv=22, bytes sent=1152 recv=1312
+  top    neighbour: node 93 (6,3), replied=1, free=1, RTT=0.002261 s
+  bottom neighbour: node 123 (8,3), replied=1, free=0, RTT=0.001184 s
+  left   neighbour: node 107 (7,2), replied=1, free=1, RTT=0.005682 s
+  right  neighbour: node 109 (7,4), replied=1, free=1, RTT=0.004497 s
+  recommendation for node 108, report #3: NO nearby nodes available
+
+[t=5.577] ALERT #180: source=37, seq=5, coord=(2,7), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006162 s
+  cumulative neighbour traffic: msgs sent=37 recv=37, bytes sent=1952 recv=2192
+  top    neighbour: node 22 (1,7), replied=1, free=1, RTT=0.001121 s
+  bottom neighbour: node 52 (3,7), replied=1, free=1, RTT=0.002245 s
+  left   neighbour: node 36 (2,6), replied=1, free=1, RTT=0.001131 s
+  right  neighbour: node 38 (2,8), replied=1, free=1, RTT=0.005691 s
+  recommendation for node 37, report #5: NO nearby nodes available
+
+[t=5.595] ALERT #181: source=217, seq=4, coord=(14,7), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004506 s
+  cumulative neighbour traffic: msgs sent=21 recv=21, bytes sent=1056 recv=1296
+  top    neighbour: node 202 (13,7), replied=1, free=1, RTT=0.001119 s
+  left   neighbour: node 216 (14,6), replied=1, free=1, RTT=0.001129 s
+  right  neighbour: node 218 (14,8), replied=1, free=1, RTT=0.004497 s
+  recommendation for node 217, report #4: node 187 (12,7)
+
+[t=5.637] ALERT #182: source=214, seq=1, coord=(14,4), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004587 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=1200 recv=480
+  top    neighbour: node 199 (13,4), replied=1, free=1, RTT=0.004570 s
+  left   neighbour: node 213 (14,3), replied=1, free=1, RTT=0.003361 s
+  right  neighbour: node 215 (14,5), replied=1, free=1, RTT=0.004583 s
+  recommendation for node 214, report #1: NO nearby nodes available
+
+[t=5.664] ALERT #183: source=109, seq=3, coord=(7,4), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.007544 s
+  cumulative neighbour traffic: msgs sent=26 recv=26, bytes sent=1536 recv=1376
+  top    neighbour: node 94 (6,4), replied=1, free=0, RTT=0.001162 s
+  bottom neighbour: node 124 (8,4), replied=1, free=1, RTT=0.001173 s
+  left   neighbour: node 108 (7,3), replied=1, free=1, RTT=0.002448 s
+  right  neighbour: node 110 (7,5), replied=1, free=1, RTT=0.005749 s
+  recommendation for node 109, report #3: NO nearby nodes available
+
+[t=5.666] ALERT #184: source=140, seq=3, coord=(9,5), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006054 s
+  cumulative neighbour traffic: msgs sent=22 recv=22, bytes sent=1152 recv=1312
+  top    neighbour: node 125 (8,5), replied=1, free=1, RTT=0.003481 s
+  bottom neighbour: node 155 (10,5), replied=1, free=1, RTT=0.002312 s
+  left   neighbour: node 139 (9,4), replied=1, free=1, RTT=0.005687 s
+  right  neighbour: node 141 (9,6), replied=1, free=1, RTT=0.006043 s
+  recommendation for node 140, report #3: node 156 (10,6)
+
+[t=5.682] ALERT #185: source=216, seq=3, coord=(14,6), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005295 s
+  cumulative neighbour traffic: msgs sent=19 recv=19, bytes sent=1104 recv=1024
+  top    neighbour: node 201 (13,6), replied=1, free=1, RTT=0.001166 s
+  left   neighbour: node 215 (14,5), replied=1, free=1, RTT=0.003062 s
+  right  neighbour: node 217 (14,7), replied=1, free=1, RTT=0.005285 s
+  recommendation for node 216, report #3: node 186 (12,6)
+
+[t=5.684] ALERT #186: source=26, seq=5, coord=(1,11), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005179 s
+  cumulative neighbour traffic: msgs sent=33 recv=33, bytes sent=1568 recv=2128
+  top    neighbour: node 11 (0,11), replied=1, free=1, RTT=0.004612 s
+  bottom neighbour: node 41 (2,11), replied=1, free=1, RTT=0.004624 s
+  left   neighbour: node 25 (1,10), replied=1, free=1, RTT=0.002267 s
+  right  neighbour: node 27 (1,12), replied=1, free=1, RTT=0.002276 s
+  recommendation for node 26, report #5: NO nearby nodes available
+
+[t=5.705] ALERT #187: source=41, seq=3, coord=(2,11), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003979 s
+  cumulative neighbour traffic: msgs sent=27 recv=27, bytes sent=1632 recv=1392
+  top    neighbour: node 26 (1,11), replied=1, free=0, RTT=0.002223 s
+  bottom neighbour: node 56 (3,11), replied=1, free=0, RTT=0.003327 s
+  left   neighbour: node 40 (2,10), replied=1, free=1, RTT=0.002232 s
+  right  neighbour: node 42 (2,12), replied=1, free=0, RTT=0.002235 s
+  recommendation for node 41, report #3: node 43 (2,13)
+
+[t=5.707] ALERT #188: source=197, seq=5, coord=(13,2), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003354 s
+  cumulative neighbour traffic: msgs sent=33 recv=33, bytes sent=1568 recv=2128
+  top    neighbour: node 182 (12,2), replied=1, free=1, RTT=0.002223 s
+  bottom neighbour: node 212 (14,2), replied=1, free=1, RTT=0.003343 s
+  left   neighbour: node 196 (13,1), replied=1, free=1, RTT=0.001123 s
+  right  neighbour: node 198 (13,3), replied=1, free=1, RTT=0.003352 s
+  recommendation for node 197, report #5: NO nearby nodes available
+
+[t=5.718] ALERT #189: source=87, seq=4, coord=(5,12), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004657 s
+  cumulative neighbour traffic: msgs sent=31 recv=31, bytes sent=1696 recv=1776
+  top    neighbour: node 72 (4,12), replied=1, free=1, RTT=0.004401 s
+  bottom neighbour: node 102 (6,12), replied=1, free=0, RTT=0.004409 s
+  left   neighbour: node 86 (5,11), replied=1, free=1, RTT=0.002194 s
+  right  neighbour: node 88 (5,13), replied=1, free=1, RTT=0.004411 s
+  recommendation for node 87, report #4: NO nearby nodes available
+
+[t=5.781] ALERT #190: source=198, seq=4, coord=(13,3), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003120 s
+  cumulative neighbour traffic: msgs sent=35 recv=35, bytes sent=2080 recv=1840
+  top    neighbour: node 183 (12,3), replied=1, free=1, RTT=0.002714 s
+  bottom neighbour: node 213 (14,3), replied=1, free=1, RTT=0.001189 s
+  left   neighbour: node 197 (13,2), replied=1, free=1, RTT=0.001201 s
+  right  neighbour: node 199 (13,4), replied=1, free=1, RTT=0.001584 s
+  recommendation for node 198, report #4: NO nearby nodes available
+
+[t=5.797] ALERT #191: source=201, seq=4, coord=(13,6), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006758 s
+  cumulative neighbour traffic: msgs sent=30 recv=30, bytes sent=1600 recv=1760
+  top    neighbour: node 186 (12,6), replied=1, free=1, RTT=0.002743 s
+  bottom neighbour: node 216 (14,6), replied=1, free=1, RTT=0.001278 s
+  left   neighbour: node 200 (13,5), replied=1, free=1, RTT=0.006113 s
+  right  neighbour: node 202 (13,7), replied=1, free=1, RTT=0.004944 s
+  recommendation for node 201, report #4: node 171 (11,6), node 187 (12,7)
+
+[t=5.798] ALERT #192: source=51, seq=5, coord=(3,6), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004731 s
+  cumulative neighbour traffic: msgs sent=35 recv=35, bytes sent=1760 recv=2160
+  top    neighbour: node 36 (2,6), replied=1, free=1, RTT=0.003237 s
+  bottom neighbour: node 66 (4,6), replied=1, free=1, RTT=0.004346 s
+  left   neighbour: node 50 (3,5), replied=1, free=1, RTT=0.003248 s
+  right  neighbour: node 52 (3,7), replied=1, free=1, RTT=0.004354 s
+  recommendation for node 51, report #5: NO nearby nodes available
+
+[t=5.800] ALERT #193: source=113, seq=6, coord=(7,8), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005771 s
+  cumulative neighbour traffic: msgs sent=38 recv=38, bytes sent=1728 recv=2528
+  top    neighbour: node 98 (6,8), replied=1, free=1, RTT=0.005760 s
+  bottom neighbour: node 128 (8,8), replied=1, free=1, RTT=0.004606 s
+  left   neighbour: node 112 (7,7), replied=1, free=0, RTT=0.005768 s
+  right  neighbour: node 114 (7,9), replied=1, free=1, RTT=0.001118 s
+  recommendation for node 113, report #6: NO nearby nodes available
+
+[t=5.816] ALERT #194: source=181, seq=4, coord=(12,1), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005297 s
+  cumulative neighbour traffic: msgs sent=29 recv=29, bytes sent=1504 recv=1744
+  top    neighbour: node 166 (11,1), replied=1, free=1, RTT=0.004862 s
+  bottom neighbour: node 196 (13,1), replied=1, free=1, RTT=0.002226 s
+  left   neighbour: node 180 (12,0), replied=1, free=0, RTT=0.002613 s
+  right  neighbour: node 182 (12,2), replied=1, free=1, RTT=0.002622 s
+  recommendation for node 181, report #4: NO nearby nodes available
+
+[t=5.827] ALERT #195: source=34, seq=3, coord=(2,4), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006292 s
+  cumulative neighbour traffic: msgs sent=27 recv=27, bytes sent=1632 recv=1392
+  top    neighbour: node 19 (1,4), replied=1, free=0, RTT=0.004428 s
+  bottom neighbour: node 49 (3,4), replied=1, free=1, RTT=0.001136 s
+  left   neighbour: node 33 (2,3), replied=1, free=1, RTT=0.001150 s
+  right  neighbour: node 35 (2,5), replied=1, free=1, RTT=0.005994 s
+  recommendation for node 34, report #3: NO nearby nodes available
+
+[t=5.884] ALERT #196: source=67, seq=5, coord=(4,7), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006074 s
+  cumulative neighbour traffic: msgs sent=34 recv=34, bytes sent=1664 recv=2144
+  top    neighbour: node 52 (3,7), replied=1, free=1, RTT=0.002228 s
+  bottom neighbour: node 82 (5,7), replied=1, free=1, RTT=0.005551 s
+  left   neighbour: node 66 (4,6), replied=1, free=1, RTT=0.002237 s
+  right  neighbour: node 68 (4,8), replied=1, free=1, RTT=0.003345 s
+  recommendation for node 67, report #5: NO nearby nodes available
+
+[t=5.901] ALERT #197: source=99, seq=5, coord=(6,9), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004903 s
+  cumulative neighbour traffic: msgs sent=33 recv=33, bytes sent=1568 recv=2128
+  top    neighbour: node 84 (5,9), replied=1, free=1, RTT=0.004893 s
+  bottom neighbour: node 114 (7,9), replied=1, free=1, RTT=0.002262 s
+  left   neighbour: node 98 (6,8), replied=1, free=1, RTT=0.002598 s
+  right  neighbour: node 100 (6,10), replied=1, free=0, RTT=0.002609 s
+  recommendation for node 99, report #5: NO nearby nodes available
+
+[t=5.902] ALERT #198: source=114, seq=3, coord=(7,9), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005113 s
+  cumulative neighbour traffic: msgs sent=34 recv=34, bytes sent=2304 recv=1504
+  top    neighbour: node 99 (6,9), replied=1, free=1, RTT=0.001174 s
+  bottom neighbour: node 129 (8,9), replied=1, free=1, RTT=0.001186 s
+  left   neighbour: node 113 (7,8), replied=1, free=1, RTT=0.001190 s
+  right  neighbour: node 115 (7,10), replied=1, free=1, RTT=0.004490 s
+  recommendation for node 114, report #3: NO nearby nodes available
+
+[t=5.903] ALERT #199: source=50, seq=4, coord=(3,5), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004965 s
+  cumulative neighbour traffic: msgs sent=34 recv=34, bytes sent=1984 recv=1824
+  top    neighbour: node 35 (2,5), replied=1, free=1, RTT=0.004954 s
+  bottom neighbour: node 65 (4,5), replied=1, free=0, RTT=0.002247 s
+  left   neighbour: node 49 (3,4), replied=1, free=1, RTT=0.004963 s
+  right  neighbour: node 51 (3,6), replied=1, free=1, RTT=0.002701 s
+  recommendation for node 50, report #4: NO nearby nodes available
+
+[t=5.945] ALERT #200: source=123, seq=4, coord=(8,3), discovered=2026-10-17 19:15:40, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006062 s
+  cumulative neighbour traffic: msgs sent=29 recv=29, bytes sent=1504 recv=1744
+  top    neighbour: node 108 (7,3), replied=1, free=1, RTT=0.001108 s
+  bottom neighbour: node 138 (9,3), replied=1, free=1, RTT=0.002226 s
+  left   neighbour: node 122 (8,2), replied=1, free=1, RTT=0.006052 s
+  right  neighbour: node 124 (8,4), replied=1, free=0, RTT=0.004927 s
+  recommendation for node 123, report #4: NO nearby nodes available
+
+[t=6.008] ALERT #201: source=110, seq=4, coord=(7,5), discovered=2026-10-17 19:15:40, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005646 s
+  cumulative neighbour traffic: msgs sent=28 recv=28, bytes sent=1408 recv=1728
+  top    neighbour: node 95 (6,5), replied=1, free=0, RTT=0.005029 s
+  bottom neighbour: node 125 (8,5), replied=1, free=1, RTT=0.003432 s
+  left   neighbour: node 109 (7,4), replied=1, free=1, RTT=0.003442 s
+  right  neighbour: node 111 (7,6), replied=1, free=1, RTT=0.002329 s
+  recommendation for node 110, report #4: NO nearby nodes available
+
+[t=6.158] ALERT #202: source=16, seq=5, coord=(1,1), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006134 s
+  cumulative neighbour traffic: msgs sent=34 recv=34, bytes sent=1664 recv=2144
+  top    neighbour: node 1 (0,1), replied=1, free=1, RTT=0.006125 s
+  bottom neighbour: node 31 (2,1), replied=1, free=1, RTT=0.002768 s
+  left   neighbour: node 15 (1,0), replied=1, free=1, RTT=0.002780 s
+  right  neighbour: node 17 (1,2), replied=1, free=1, RTT=0.001119 s
+  recommendation for node 16, report #5: NO nearby nodes available
+
+[t=6.189] ALERT #203: source=76, seq=5, coord=(5,1), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005759 s
+  cumulative neighbour traffic: msgs sent=36 recv=36, bytes sent=1856 recv=2176
+  top    neighbour: node 61 (4,1), replied=1, free=1, RTT=0.003498 s
+  bottom neighbour: node 91 (6,1), replied=1, free=1, RTT=0.005745 s
+  left   neighbour: node 75 (5,0), replied=1, free=0, RTT=0.004622 s
+  right  neighbour: node 77 (5,2), replied=1, free=1, RTT=0.005756 s
+  recommendation for node 76, report #5: NO nearby nodes available
+
+[t=6.236] ALERT #204: source=35, seq=4, coord=(2,5), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004735 s
+  cumulative neighbour traffic: msgs sent=32 recv=32, bytes sent=1792 recv=1792
+  top    neighbour: node 20 (1,5), replied=1, free=0, RTT=0.001102 s
+  bottom neighbour: node 50 (3,5), replied=1, free=1, RTT=0.003426 s
+  left   neighbour: node 34 (2,4), replied=1, free=1, RTT=0.003437 s
+  right  neighbour: node 36 (2,6), replied=1, free=1, RTT=0.001112 s
+  recommendation for node 35, report #4: NO nearby nodes available
+
+[t=6.263] ALERT #205: source=224, seq=3, coord=(14,14), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=2 recv=2, bytes sent=32 recv=192, exchange_time=0.002256 s
+  cumulative neighbour traffic: msgs sent=13 recv=13, bytes sent=768 recv=688
+  top    neighbour: node 209 (13,14), replied=1, free=1, RTT=0.002239 s
+  left   neighbour: node 223 (14,13), replied=1, free=0, RTT=0.002252 s
+  recommendation for node 224, report #3: NO nearby nodes available
+
+[t=6.275] ALERT #206: source=166, seq=4, coord=(11,1), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006367 s
+  cumulative neighbour traffic: msgs sent=34 recv=34, bytes sent=1984 recv=1824
+  top    neighbour: node 151 (10,1), replied=1, free=1, RTT=0.001253 s
+  bottom neighbour: node 181 (12,1), replied=1, free=1, RTT=0.005888 s
+  left   neighbour: node 165 (11,0), replied=1, free=1, RTT=0.002381 s
+  right  neighbour: node 167 (11,2), replied=1, free=1, RTT=0.004691 s
+  recommendation for node 166, report #4: node 150 (10,0)
+
+[t=6.278] ALERT #207: source=66, seq=4, coord=(4,6), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006287 s
+  cumulative neighbour traffic: msgs sent=37 recv=37, bytes sent=2272 recv=1872
+  top    neighbour: node 51 (3,6), replied=1, free=0, RTT=0.002220 s
+  bottom neighbour: node 81 (5,6), replied=1, free=1, RTT=0.005552 s
+  left   neighbour: node 65 (4,5), replied=1, free=0, RTT=0.002233 s
+  right  neighbour: node 67 (4,7), replied=1, free=1, RTT=0.006284 s
+  recommendation for node 66, report #4: NO nearby nodes available
+
+[t=6.294] ALERT #208: source=210, seq=5, coord=(14,0), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=2 recv=2, bytes sent=32 recv=192, exchange_time=0.003760 s
+  cumulative neighbour traffic: msgs sent=15 recv=15, bytes sent=640 recv=1040
+  top    neighbour: node 195 (13,0), replied=1, free=0, RTT=0.003750 s
+  right  neighbour: node 211 (14,1), replied=1, free=1, RTT=0.002264 s
+  recommendation for node 210, report #5: NO nearby nodes available
+
+[t=6.295] ALERT #209: source=91, seq=4, coord=(6,1), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005963 s
+  cumulative neighbour traffic: msgs sent=32 recv=32, bytes sent=1792 recv=1792
+  top    neighbour: node 76 (5,1), replied=1, free=1, RTT=0.004549 s
+  bottom neighbour: node 106 (7,1), replied=1, free=1, RTT=0.002338 s
+  left   neighbour: node 90 (6,0), replied=1, free=0, RTT=0.005953 s
+  right  neighbour: node 92 (6,2), replied=1, free=1, RTT=0.004559 s
+  recommendation for node 91, report #4: NO nearby nodes available
+
+[t=6.317] ALERT #210: source=196, seq=4, coord=(13,1), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006671 s
+  cumulative neighbour traffic: msgs sent=30 recv=30, bytes sent=1600 recv=1760
+  top    neighbour: node 181 (12,1), replied=1, free=1, RTT=0.001127 s
+  bottom neighbour: node 211 (14,1), replied=1, free=1, RTT=0.006269 s
+  left   neighbour: node 195 (13,0), replied=1, free=0, RTT=0.001539 s
+  right  neighbour: node 197 (13,2), replied=1, free=1, RTT=0.002695 s
+  recommendation for node 196, report #4: NO nearby nodes available
+
+[t=6.328] ALERT #211: source=17, seq=4, coord=(1,2), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003233 s
+  cumulative neighbour traffic: msgs sent=30 recv=30, bytes sent=1600 recv=1760
+  top    neighbour: node 2 (0,2), replied=1, free=1, RTT=0.002348 s
+  bottom neighbour: node 32 (2,2), replied=1, free=1, RTT=0.002830 s
+  left   neighbour: node 16 (1,1), replied=1, free=1, RTT=0.003224 s
+  right  neighbour: node 18 (1,3), replied=1, free=1, RTT=0.003231 s
+  recommendation for node 17, report #4: NO nearby nodes available
+
+[t=6.345] ALERT #212: source=77, seq=5, coord=(5,2), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005652 s
+  cumulative neighbour traffic: msgs sent=36 recv=36, bytes sent=1856 recv=2176
+  top    neighbour: node 62 (4,2), replied=1, free=1, RTT=0.005644 s
+  bottom neighbour: node 92 (6,2), replied=1, free=1, RTT=0.004520 s
+  left   neighbour: node 76 (5,1), replied=1, free=1, RTT=0.003413 s
+  right  neighbour: node 78 (5,3), replied=1, free=1, RTT=0.001151 s
+  recommendation for node 77, report #5: NO nearby nodes available
+
+[t=6.362] ALERT #213: source=29, seq=5, coord=(1,14), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.003944 s
+  cumulative neighbour traffic: msgs sent=28 recv=28, bytes sent=1488 recv=1648
+  top    neighbour: node 14 (0,14), replied=1, free=1, RTT=0.002201 s
+  bottom neighbour: node 44 (2,14), replied=1, free=1, RTT=0.003324 s
+  left   neighbour: node 28 (1,13), replied=1, free=1, RTT=0.003665 s
+  recommendation for node 29, report #5: node 43 (2,13)
+
+[t=6.383] ALERT #214: source=121, seq=5, coord=(8,1), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005595 s
+  cumulative neighbour traffic: msgs sent=34 recv=34, bytes sent=1664 recv=2144
+  top    neighbour: node 106 (7,1), replied=1, free=1, RTT=0.002251 s
+  bottom neighbour: node 136 (9,1), replied=1, free=1, RTT=0.002258 s
+  left   neighbour: node 120 (8,0), replied=1, free=1, RTT=0.002260 s
+  right  neighbour: node 122 (8,2), replied=1, free=1, RTT=0.005586 s
+  recommendation for node 121, report #5: node 135 (9,0)
+
+[t=6.385] ALERT #215: source=202, seq=5, coord=(13,7), discovered=2026-10-17 19:15:41, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003510 s
+  cumulative neighbour traffic: msgs sent=34 recv=34, bytes sent=1664 recv=2144
+  top    neighbour: node 187 (12,7), replied=1, free=1, RTT=0.002227 s
+  bottom neighbour: node 217 (14,7), replied=1, free=1, RTT=0.003432 s
+  left   neighbour: node 201 (13,6), replied=1, free=1, RTT=0.003445 s
+  right  neighbour: node 203 (13,8), replied=1, free=1, RTT=0.003505 s
+  recommendation for node 202, report #5: node 172 (11,7)
+
+[t=6.401] ALERT #216: source=164, seq=5, coord=(10,14), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.002549 s
+  cumulative neighbour traffic: msgs sent=28 recv=28, bytes sent=1488 recv=1648
+  top    neighbour: node 149 (9,14), replied=1, free=1, RTT=0.002543 s
+  bottom neighbour: node 179 (11,14), replied=1, free=1, RTT=0.001136 s
+  left   neighbour: node 163 (10,13), replied=1, free=1, RTT=0.001405 s
+  recommendation for node 164, report #5: NO nearby nodes available
+
+[t=6.418] ALERT #217: source=188, seq=5, coord=(12,8), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003607 s
+  cumulative neighbour traffic: msgs sent=31 recv=31, bytes sent=1376 recv=2096
+  top    neighbour: node 173 (11,8), replied=1, free=0, RTT=0.002466 s
+  bottom neighbour: node 203 (13,8), replied=1, free=1, RTT=0.003599 s
+  left   neighbour: node 187 (12,7), replied=1, free=1, RTT=0.002475 s
+  right  neighbour: node 189 (12,9), replied=1, free=1, RTT=0.001098 s
+  recommendation for node 188, report #5: node 158 (10,8), node 172 (11,7)
+
+[t=6.419] ALERT #218: source=186, seq=3, coord=(12,6), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004817 s
+  cumulative neighbour traffic: msgs sent=27 recv=27, bytes sent=1632 recv=1392
+  top    neighbour: node 171 (11,6), replied=1, free=1, RTT=0.003397 s
+  bottom neighbour: node 201 (13,6), replied=1, free=1, RTT=0.004507 s
+  left   neighbour: node 185 (12,5), replied=1, free=1, RTT=0.001107 s
+  right  neighbour: node 187 (12,7), replied=1, free=1, RTT=0.004514 s
+  recommendation for node 186, report #3: node 156 (10,6), node 172 (11,7)
+
+[t=6.430] ALERT #219: source=105, seq=3, coord=(7,0), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004426 s
+  cumulative neighbour traffic: msgs sent=22 recv=22, bytes sent=1392 recv=1072
+  top    neighbour: node 90 (6,0), replied=1, free=1, RTT=0.003322 s
+  bottom neighbour: node 120 (8,0), replied=1, free=1, RTT=0.004403 s
+  right  neighbour: node 106 (7,1), replied=1, free=0, RTT=0.004423 s
+  recommendation for node 105, report #3: node 135 (9,0)
+
+[t=6.462] ALERT #220: source=180, seq=5, coord=(12,0), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.006128 s
+  cumulative neighbour traffic: msgs sent=26 recv=26, bytes sent=1296 recv=1616
+  top    neighbour: node 165 (11,0), replied=1, free=1, RTT=0.002306 s
+  bottom neighbour: node 195 (13,0), replied=1, free=1, RTT=0.005587 s
+  right  neighbour: node 181 (12,1), replied=1, free=1, RTT=0.006125 s
+  recommendation for node 180, report #5: node 150 (10,0)
+
+[t=6.481] ALERT #221: source=65, seq=7, coord=(4,5), discovered=2026-10-17 19:15:41, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005152 s
+  cumulative neighbour traffic: msgs sent=46 recv=46, bytes sent=2176 recv=2976
+  top    neighbour: node 50 (3,5), replied=1, free=1, RTT=0.003393 s
+  bottom neighbour: node 80 (5,5), replied=1, free=0, RTT=0.004754 s
+  left   neighbour: node 64 (4,4), replied=1, free=1, RTT=0.001117 s
+  right  neighbour: node 66 (4,6), replied=1, free=1, RTT=0.003657 s
+  recommendation for node 65, report #7: NO nearby nodes available
+
+[t=6.488] ALERT #222: source=139, seq=2, coord=(9,4), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004943 s
+  cumulative neighbour traffic: msgs sent=24 recv=24, bytes sent=1664 recv=1024
+  top    neighbour: node 124 (8,4), replied=1, free=1, RTT=0.004649 s
+  bottom neighbour: node 154 (10,4), replied=1, free=0, RTT=0.004656 s
+  left   neighbour: node 138 (9,3), replied=1, free=1, RTT=0.003508 s
+  right  neighbour: node 140 (9,5), replied=1, free=1, RTT=0.002150 s
+  recommendation for node 139, report #2: NO nearby nodes available
+
+[t=6.502] ALERT #223: source=149, seq=6, coord=(9,14), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004532 s
+  cumulative neighbour traffic: msgs sent=30 recv=30, bytes sent=1440 recv=1920
+  top    neighbour: node 134 (8,14), replied=1, free=1, RTT=0.001201 s
+  bottom neighbour: node 164 (10,14), replied=1, free=1, RTT=0.004519 s
+  left   neighbour: node 148 (9,13), replied=1, free=0, RTT=0.004529 s
+  recommendation for node 149, report #6: NO nearby nodes available
+
+[t=6.601] ALERT #224: source=89, seq=4, coord=(5,14), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.003335 s
+  cumulative neighbour traffic: msgs sent=25 recv=25, bytes sent=1440 recv=1360
+  top    neighbour: node 74 (4,14), replied=1, free=0, RTT=0.003322 s
+  bottom neighbour: node 104 (6,14), replied=1, free=1, RTT=0.003333 s
+  left   neighbour: node 88 (5,13), replied=1, free=1, RTT=0.001127 s
+  recommendation for node 89, report #4: NO nearby nodes available
+
+[t=6.639] ALERT #225: source=214, seq=2, coord=(14,4), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005602 s
+  cumulative neighbour traffic: msgs sent=21 recv=21, bytes sent=1536 recv=816
+  top    neighbour: node 199 (13,4), replied=1, free=1, RTT=0.001069 s
+  left   neighbour: node 213 (14,3), replied=1, free=1, RTT=0.003327 s
+  right  neighbour: node 215 (14,5), replied=1, free=1, RTT=0.005593 s
+  recommendation for node 214, report #2: NO nearby nodes available
+
+[t=6.681] ALERT #226: source=216, seq=4, coord=(14,6), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,1,0,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005880 s
+  cumulative neighbour traffic: msgs sent=25 recv=25, bytes sent=1440 recv=1360
+  top    neighbour: node 201 (13,6), replied=1, free=1, RTT=0.005552 s
+  left   neighbour: node 215 (14,5), replied=1, free=1, RTT=0.004440 s
+  right  neighbour: node 217 (14,7), replied=1, free=1, RTT=0.002228 s
+  recommendation for node 216, report #4: NO nearby nodes available
+
+[t=6.715] ALERT #227: source=220, seq=5, coord=(14,10), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005113 s
+  cumulative neighbour traffic: msgs sent=27 recv=27, bytes sent=1392 recv=1632
+  top    neighbour: node 205 (13,10), replied=1, free=1, RTT=0.005106 s
+  left   neighbour: node 219 (14,9), replied=1, free=0, RTT=0.001089 s
+  right  neighbour: node 221 (14,11), replied=1, free=1, RTT=0.002980 s
+  recommendation for node 220, report #5: NO nearby nodes available
+
+[t=6.732] ALERT #228: source=208, seq=5, coord=(13,13), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004753 s
+  cumulative neighbour traffic: msgs sent=34 recv=34, bytes sent=1664 recv=2144
+  top    neighbour: node 193 (12,13), replied=1, free=1, RTT=0.004741 s
+  bottom neighbour: node 223 (14,13), replied=1, free=1, RTT=0.001099 s
+  left   neighbour: node 207 (13,12), replied=1, free=1, RTT=0.002542 s
+  right  neighbour: node 209 (13,14), replied=1, free=0, RTT=0.002549 s
+  recommendation for node 208, report #5: NO nearby nodes available
+
+[t=6.811] ALERT #229: source=75, seq=5, coord=(5,0), discovered=2026-10-17 19:15:41, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.003546 s
+  cumulative neighbour traffic: msgs sent=29 recv=29, bytes sent=1584 recv=1664
+  top    neighbour: node 60 (4,0), replied=1, free=1, RTT=0.001084 s
+  bottom neighbour: node 90 (6,0), replied=1, free=1, RTT=0.001385 s
+  right  neighbour: node 76 (5,1), replied=1, free=1, RTT=0.003540 s
+  recommendation for node 75, report #5: NO nearby nodes available
+
+[t=6.840] ALERT #230: source=155, seq=7, coord=(10,5), discovered=2026-10-17 19:15:41, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005502 s
+  cumulative neighbour traffic: msgs sent=44 recv=44, bytes sent=1984 recv=2944
+  top    neighbour: node 140 (9,5), replied=1, free=1, RTT=0.005496 s
+  bottom neighbour: node 170 (11,5), replied=1, free=1, RTT=0.001105 s
+  left   neighbour: node 154 (10,4), replied=1, free=1, RTT=0.002215 s
+  right  neighbour: node 156 (10,6), replied=1, free=1, RTT=0.004381 s
+  recommendation for node 155, report #7: NO nearby nodes available
+
+[t=6.885] ALERT #231: source=213, seq=7, coord=(14,3), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004810 s
+  cumulative neighbour traffic: msgs sent=32 recv=32, bytes sent=1392 recv=2192
+  top    neighbour: node 198 (13,3), replied=1, free=1, RTT=0.004397 s
+  left   neighbour: node 212 (14,2), replied=1, free=1, RTT=0.004798 s
+  right  neighbour: node 214 (14,4), replied=1, free=0, RTT=0.004808 s
+  recommendation for node 213, report #7: NO nearby nodes available
+
+[t=6.886] ALERT #232: source=195, seq=3, coord=(13,0), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005455 s
+  cumulative neighbour traffic: msgs sent=23 recv=23, bytes sent=1488 recv=1088
+  top    neighbour: node 180 (12,0), replied=1, free=1, RTT=0.002202 s
+  bottom neighbour: node 210 (14,0), replied=1, free=0, RTT=0.001104 s
+  right  neighbour: node 196 (13,1), replied=1, free=1, RTT=0.005438 s
+  recommendation for node 195, report #3: NO nearby nodes available
+
+[t=6.964] ALERT #233: source=222, seq=5, coord=(14,12), discovered=2026-10-17 19:15:41, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.004233 s
+  cumulative neighbour traffic: msgs sent=28 recv=28, bytes sent=1488 recv=1648
+  top    neighbour: node 207 (13,12), replied=1, free=1, RTT=0.004227 s
+  left   neighbour: node 221 (14,11), replied=1, free=1, RTT=0.001426 s
+  right  neighbour: node 223 (14,13), replied=1, free=1, RTT=0.003136 s
+  recommendation for node 222, report #5: NO nearby nodes available
+
+[t=7.104] ALERT #234: source=207, seq=4, coord=(13,12), discovered=2026-10-17 19:15:42, free=1/6, threshold=2
+  ports: 1,1,1,0,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005827 s
+  cumulative neighbour traffic: msgs sent=35 recv=35, bytes sent=2080 recv=1840
+  top    neighbour: node 192 (12,12), replied=1, free=1, RTT=0.005455 s
+  bottom neighbour: node 222 (14,12), replied=1, free=1, RTT=0.004371 s
+  left   neighbour: node 206 (13,11), replied=1, free=1, RTT=0.003291 s
+  right  neighbour: node 208 (13,13), replied=1, free=0, RTT=0.002197 s
+  recommendation for node 207, report #4: NO nearby nodes available
+
+[t=7.153] ALERT #235: source=203, seq=4, coord=(13,8), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005490 s
+  cumulative neighbour traffic: msgs sent=32 recv=32, bytes sent=1792 recv=1792
+  top    neighbour: node 188 (12,8), replied=1, free=0, RTT=0.001087 s
+  bottom neighbour: node 218 (14,8), replied=1, free=1, RTT=0.003260 s
+  left   neighbour: node 202 (13,7), replied=1, free=0, RTT=0.005460 s
+  right  neighbour: node 204 (13,9), replied=1, free=1, RTT=0.001097 s
+  recommendation for node 203, report #4: NO nearby nodes available
+
+[t=7.181] ALERT #236: source=80, seq=6, coord=(5,5), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.003576 s
+  cumulative neighbour traffic: msgs sent=46 recv=46, bytes sent=2496 recv=2656
+  top    neighbour: node 65 (4,5), replied=1, free=1, RTT=0.002185 s
+  bottom neighbour: node 95 (6,5), replied=1, free=0, RTT=0.003275 s
+  left   neighbour: node 79 (5,4), replied=1, free=0, RTT=0.003574 s
+  right  neighbour: node 81 (5,6), replied=1, free=1, RTT=0.001098 s
+  recommendation for node 80, report #6: NO nearby nodes available
+
+[t=7.280] ALERT #237: source=135, seq=6, coord=(9,0), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005296 s
+  cumulative neighbour traffic: msgs sent=27 recv=27, bytes sent=1152 recv=1872
+  top    neighbour: node 120 (8,0), replied=1, free=0, RTT=0.001124 s
+  bottom neighbour: node 150 (10,0), replied=1, free=0, RTT=0.004460 s
+  right  neighbour: node 136 (9,1), replied=1, free=1, RTT=0.003334 s
+  recommendation for node 135, report #6: NO nearby nodes available
+
+[t=7.357] ALERT #238: source=218, seq=4, coord=(14,8), discovered=2026-10-17 19:15:42, free=1/6, threshold=2
+  ports: 1,1,0,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.007278 s
+  cumulative neighbour traffic: msgs sent=26 recv=26, bytes sent=1536 recv=1376
+  top    neighbour: node 203 (13,8), replied=1, free=0, RTT=0.004669 s
+  left   neighbour: node 217 (14,7), replied=1, free=0, RTT=0.003288 s
+  right  neighbour: node 219 (14,9), replied=1, free=1, RTT=0.004676 s
+  recommendation for node 218, report #4: NO nearby nodes available
+
+[t=7.375] ALERT #239: source=58, seq=7, coord=(3,13), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.002828 s
+  cumulative neighbour traffic: msgs sent=39 recv=39, bytes sent=1504 recv=2864
+  top    neighbour: node 43 (2,13), replied=1, free=0, RTT=0.002377 s
+  bottom neighbour: node 73 (4,13), replied=1, free=0, RTT=0.002821 s
+  left   neighbour: node 57 (3,12), replied=1, free=0, RTT=0.001068 s
+  right  neighbour: node 59 (3,14), replied=1, free=1, RTT=0.002825 s
+  recommendation for node 58, report #7: NO nearby nodes available
+
+[t=7.376] ALERT #240: source=83, seq=7, coord=(5,8), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004604 s
+  cumulative neighbour traffic: msgs sent=45 recv=45, bytes sent=2080 recv=2960
+  top    neighbour: node 68 (4,8), replied=1, free=0, RTT=0.004596 s
+  bottom neighbour: node 98 (6,8), replied=1, free=0, RTT=0.003492 s
+  left   neighbour: node 82 (5,7), replied=1, free=1, RTT=0.001216 s
+  right  neighbour: node 84 (5,9), replied=1, free=1, RTT=0.002370 s
+  recommendation for node 83, report #7: NO nearby nodes available
+
+[t=7.489] ALERT #241: source=150, seq=2, coord=(10,0), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.002909 s
+  cumulative neighbour traffic: msgs sent=23 recv=23, bytes sent=1728 recv=848
+  top    neighbour: node 135 (9,0), replied=1, free=1, RTT=0.002896 s
+  bottom neighbour: node 165 (11,0), replied=1, free=0, RTT=0.001150 s
+  right  neighbour: node 151 (10,1), replied=1, free=1, RTT=0.002906 s
+  recommendation for node 150, report #2: NO nearby nodes available
+
+[t=7.526] ALERT #242: source=157, seq=3, coord=(10,7), discovered=2026-10-17 19:15:42, free=1/6, threshold=2
+  ports: 1,0,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.006412 s
+  cumulative neighbour traffic: msgs sent=28 recv=28, bytes sent=1728 recv=1408
+  top    neighbour: node 142 (9,7), replied=1, free=1, RTT=0.001091 s
+  bottom neighbour: node 172 (11,7), replied=1, free=1, RTT=0.006405 s
+  left   neighbour: node 156 (10,6), replied=1, free=1, RTT=0.003814 s
+  right  neighbour: node 158 (10,8), replied=1, free=1, RTT=0.002186 s
+  recommendation for node 157, report #3: NO nearby nodes available
+
+[t=7.527] ALERT #243: source=36, seq=7, coord=(2,6), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004815 s
+  cumulative neighbour traffic: msgs sent=47 recv=47, bytes sent=2272 recv=2992
+  top    neighbour: node 21 (1,6), replied=1, free=0, RTT=0.001129 s
+  bottom neighbour: node 51 (3,6), replied=1, free=0, RTT=0.004809 s
+  left   neighbour: node 35 (2,5), replied=1, free=1, RTT=0.002210 s
+  right  neighbour: node 37 (2,7), replied=1, free=0, RTT=0.001138 s
+  recommendation for node 36, report #7: NO nearby nodes available
+
+[t=7.641] ALERT #244: source=28, seq=5, coord=(1,13), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.004939 s
+  cumulative neighbour traffic: msgs sent=36 recv=36, bytes sent=1856 recv=2176
+  top    neighbour: node 13 (0,13), replied=1, free=0, RTT=0.003827 s
+  bottom neighbour: node 43 (2,13), replied=1, free=0, RTT=0.003837 s
+  left   neighbour: node 27 (1,12), replied=1, free=1, RTT=0.004933 s
+  right  neighbour: node 29 (1,14), replied=1, free=1, RTT=0.002211 s
+  recommendation for node 28, report #5: NO nearby nodes available
+
+[t=7.643] ALERT #245: source=11, seq=6, coord=(0,11), discovered=2026-10-17 19:15:42, free=1/6, threshold=2
+  ports: 0,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005156 s
+  cumulative neighbour traffic: msgs sent=35 recv=35, bytes sent=1920 recv=2000
+  bottom neighbour: node 26 (1,11), replied=1, free=0, RTT=0.004339 s
+  left   neighbour: node 10 (0,10), replied=1, free=0, RTT=0.005147 s
+  right  neighbour: node 12 (0,12), replied=1, free=1, RTT=0.005154 s
+  recommendation for node 11, report #6: NO nearby nodes available
+
+[t=7.757] ALERT #246: source=53, seq=6, coord=(3,8), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005029 s
+  cumulative neighbour traffic: msgs sent=45 recv=45, bytes sent=2400 recv=2640
+  top    neighbour: node 38 (2,8), replied=1, free=1, RTT=0.002685 s
+  bottom neighbour: node 68 (4,8), replied=1, free=1, RTT=0.001133 s
+  left   neighbour: node 52 (3,7), replied=1, free=1, RTT=0.005021 s
+  right  neighbour: node 54 (3,9), replied=1, free=1, RTT=0.003913 s
+  recommendation for node 53, report #6: NO nearby nodes available
+
+[t=7.830] ALERT #247: source=168, seq=4, coord=(11,3), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.005292 s
+  cumulative neighbour traffic: msgs sent=36 recv=36, bytes sent=2176 recv=1856
+  top    neighbour: node 153 (10,3), replied=1, free=1, RTT=0.003556 s
+  bottom neighbour: node 183 (12,3), replied=1, free=0, RTT=0.005284 s
+  left   neighbour: node 167 (11,2), replied=1, free=1, RTT=0.003903 s
+  right  neighbour: node 169 (11,4), replied=1, free=1, RTT=0.003910 s
+  recommendation for node 168, report #4: NO nearby nodes available
+
+[t=7.832] ALERT #248: source=24, seq=4, coord=(1,9), discovered=2026-10-17 19:15:42, free=1/6, threshold=2
+  ports: 1,1,1,1,1,0
+  neighbour exchange: msgs sent=4 recv=4, bytes sent=64 recv=384, exchange_time=0.002543 s
+  cumulative neighbour traffic: msgs sent=34 recv=34, bytes sent=1984 recv=1824
+  top    neighbour: node 9 (0,9), replied=1, free=0, RTT=0.001101 s
+  bottom neighbour: node 39 (2,9), replied=1, free=1, RTT=0.002207 s
+  left   neighbour: node 23 (1,8), replied=1, free=0, RTT=0.002537 s
+  right  neighbour: node 25 (1,10), replied=1, free=0, RTT=0.002541 s
+  recommendation for node 24, report #4: NO nearby nodes available
+
+[t=7.894] ALERT #249: source=195, seq=4, coord=(13,0), discovered=2026-10-17 19:15:42, free=0/6, threshold=2
+  ports: 1,1,1,1,1,1
+  neighbour exchange: msgs sent=3 recv=3, bytes sent=48 recv=288, exchange_time=0.005783 s
+  cumulative neighbour traffic: msgs sent=28 recv=28, bytes sent=1728 recv=1408
+  top    neighbour: node 180 (12,0), replied=1, free=1, RTT=0.005770 s
+  bottom neighbour: node 210 (14,0), replied=1, free=0, RTT=0.001143 s
+  right  neighbour: node 196 (13,1), replied=1, free=1, RTT=0.003575 s
+  recommendation for node 195, report #4: NO nearby nodes available
+
+# ---- summary ----
+# simulation time                 : 8.004 s
+# alerts / reports received       : 249
+# base replies sent               : 249
+# termination messages sent       : 225
+# base messages/events total      : 723
+# incident neighbour msgs sent    : 908
+# incident neighbour msgs received: 908
+# shutdown                        : graceful
