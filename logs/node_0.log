@@ -1,0 +1,31 @@
+# EV charging node 0
+# grid            : 2 x 2 (4 nodes + 1 base station)
+# ports per node  : 4
+# threshold       : 2 free ports (congested if availability < threshold)
+# update cycle    : 1.00 s
+# base period T   : 5.00 s
+# duration        : 6.00 s
+# seed            : 1
+# congestion prob : 0.90
+# comm version    : 2
+# message sizes   : NbrRequest=16 B, NbrReply=96 B, Report=288 B, BaseReply=120 B, Terminate=8 B
+# cart rank 0, coord (0,0), neighbours: top=-2 bottom=2 left=-2 right=1
+# Year Mon Day Hr Min Sec  availability  port status (1=in use, 0=free)
+[2026-10-16 16:06:39 | t=   0.039] served availability request #1 from neighbour node 1: replied avail=1/4
+2026 10 16 16 06 39  avail= 0/4  ports=[1 1 1 1]
+[2026-10-16 16:06:39 | t=   0.039] CONGESTION detected (incident #1): availability 0/4 < threshold 2 -> requesting data from 2 neighbour(s)
+[2026-10-16 16:06:39 | t=   0.045]   reply from bottom neighbour node 2 (1,0): avail=0/4  rtt=0.005794 s
+[2026-10-16 16:06:39 | t=   0.045] served availability request #1 from neighbour node 2: replied avail=0/4
+[2026-10-16 16:06:41 | t=   2.039]   WARNING: no reply from right neighbour node 1 within 2.0 s
+[2026-10-16 16:06:45 | t=   6.009] incident #1: all neighbours congested -> REPORT sent to base station (discovered 2026-10-16 16:06:39, avail=0/4, nbr msgs sent=2 recv=1, bytes sent=32 recv=96, exchange 2.000147 s, report 288 B)
+[2026-10-16 16:06:45 | t=   6.010] termination message received from base station (delay 0.000975 s); starting graceful shutdown
+# ---- summary ----
+# cycles recorded          : 1
+# congestion incidents     : 1
+#   resolved by redirect   : 0
+#   reported to base       : 1 (replies received: 0)
+# neighbour requests served: 2
+# neighbour reply timeouts : 1
+# neighbour msgs sent/recv : 4 / 3  (bytes 224 / 128)
+# run time                 : 6.016 s
+# shutdown                 : graceful (termination message from base station)
